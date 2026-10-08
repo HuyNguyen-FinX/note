@@ -9,7 +9,8 @@ THRESH = 0.6
 STOP = set("a an the and or of for to in on with by from at as into its it that this across via while".split())
 def bullets(path):
     s = open(path).read()
-    s = s.split(r"\cvsection{Selected Projects}")[0]
+    s = re.sub(r"(?<!\\)%.*", "", s)  # drop LaTeX comments (fact tags)
+    s = re.split(r"\\cvsection\{(?:Selected Projects|Key Project|Projects)\}", s)[0]
     s = s.split(r"\cvsection{Work Experience}")[-1]
     items = re.findall(r"\\item\s+(.*?)(?=\\item|\\end\{itemize\})", s, re.S)
     out = []

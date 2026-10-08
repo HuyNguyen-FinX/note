@@ -1,7 +1,10 @@
 % pdf-name: Data_Engineer
-% Positioning: data engineer. Vietlink is the centre of gravity (5 data
-% bullets); Galaxy FinX is told as core banking data migration; VNPAY is
-% reduced to one line; EsolLabs is told as event ingestion.
+% Positioning: Data Engineer.
+%   Primary    = Vietlink (ETL platform, optimization, search, data ops)
+%   Secondary  = Galaxy FinX (account data migration, financial data logic)
+%   Supporting = VNPAY (platform infrastructure), EsolLabs (on-chain ingestion)
+% Tags: "% @V1ab" = facts from analysis/experience-inventory.md,
+%       "!A14"    = interpretation listed in analysis/review-needed.md (Part A).
 \input{../templates/resume-template.tex}
 
 \begin{document}
@@ -9,51 +12,89 @@
 \cvheader{Data Engineer}
 
 \cvsummary{%
-Data engineer with nearly three years of software engineering experience and hands-on ownership of production data pipelines. Designed and operated AWS ETL pipelines on Lambda, ECS, S3, Athena, and RDS for au Denki, an electric utility platform serving millions of users; redesigned batch processing for a \textbf{150\%} throughput gain; and migrated search analytics from Elasticsearch to OpenSearch. At a digital bank, built the account migration system that completes a migration in \textbf{27 minutes instead of 2.5 hours}.}
+Data engineer with nearly three years of software engineering experience, most deeply in production data pipelines on AWS. At Vietlink (KDDI group), designed, built, and operated the ETL platform behind \textbf{au Denki}, an electric utility service with millions of users: serverless and containerized processing on Lambda and ECS, S3 and Athena for analytical querying, RDS for relational data, Terraform and AWS SAM for infrastructure, and CloudWatch and DataDog for monitoring. Raised batch throughput by \textbf{150\%} and migrated search analytics from Elasticsearch to OpenSearch. At Vikki Digital Bank, built the Golang account migration system that cut a migration run from \textbf{2.5 hours to 27 minutes}.}
 
 \begin{cvskills}
-Data Engineering: & ETL pipeline design, batch processing, parallel processing, data migration, search indexing, event ingestion \\
-AWS Data Services: & S3, Athena, Lambda, ECS, RDS \\
-Languages: & SQL, Python, Golang \\
-Storage \& Search: & PostgreSQL, OpenSearch, Elasticsearch, ClickHouse, MongoDB, Redis \\
-Streaming: & Kafka \\
-Pipeline Operations: & Terraform, AWS SAM, CloudWatch, DataDog, Docker \\
+Data Engineering: & ETL pipeline design, data ingestion, data transformation, batch processing, parallel processing \\
+Migration \& Search: & Account data migration, search indexing, Elasticsearch to OpenSearch migration \\
+AWS Data Services: & Amazon S3, Amazon Athena, AWS Lambda, Amazon ECS, Amazon RDS \\
+Languages \& Query: & SQL, Python, Golang \\
+Databases \& Search: & PostgreSQL, OpenSearch, Elasticsearch, ClickHouse, MongoDB, Redis \\
+Streaming \& Messaging: & Kafka, RabbitMQ \\
+Infrastructure: & Terraform, AWS SAM, Docker, Kubernetes \\
+Monitoring: & CloudWatch, DataDog, Prometheus, Grafana, OpenTelemetry, ELK \\
 \end{cvskills}
 
 \cvsection{Work Experience}
 
-\jobGalaxyFinX*[Core Banking Data Migration]
+\jobGalaxyFinX*[Core Banking Data \& Migration]
 \begin{itemize}
-    \item Built the account migration system for the bank's core banking platform in \textbf{Golang} on AWS \textbf{ECS, Lambda, and RDS}, cutting each migration run from \mbox{\textbf{2.5 hours to 27 minutes (5x faster)}}.
-    \item Implemented financial calculation logic for Lending and Overdraft products (interest accrual, penalty and late fees, repayment, and settlement) in Thought Machine Vault Core Python Smart Contracts.
+    \item Built the \textbf{account migration system} for the core banking platform in \textbf{Golang}, reducing a migration run from \mbox{\textbf{2.5 hours to 27 minutes (5x faster)}}. % @G4ae
+    \item Ran migration processing on AWS, combining containerized workloads on \textbf{ECS} with serverless functions on \textbf{Lambda} and persisting migration data in \textbf{RDS}. % @G4bcd !A18
+    \item Implemented interest accrual plus penalty and late-fee calculations for the \textbf{Lending} and \textbf{Overdraft} products in Python Smart Contracts on Thought Machine Vault Core. % @G1abcdgh
+    \item Implemented \textbf{repayment and settlement} logic, where every calculated amount flows into customer balances on the core ledger. % @G1ef !A2 !A4
+    \item Integrated Vault Core with external backend services, supporting core banking operations and transaction workflows across systems. % @G5abc
+    \item Rebuilt the simulation testing framework entirely in Golang, replacing the Gauge-based framework and cutting execution from \textbf{24 minutes to just over 50 seconds (20x faster)}. % @G2abc
+    \item Deployed a new Vault Core version on AWS (EKS, RDS, ECR, ELB) and built its CI/CD pipeline for automated build, test, and deployment. % @G3abcdef
 \end{itemize}
 
 \jobVietlink[Data Engineer]
+\cvgroup{Data Pipeline Architecture}
 \begin{itemize}
-    \item Designed, built, and operated the \textbf{AWS ETL pipelines} that ingest and transform large-scale utility data into datasets for downstream analytics and operational workloads.
-    \item Combined serverless processing on \textbf{Lambda} with containerized batch jobs on \textbf{ECS}, storing data in \textbf{S3}, querying it with \textbf{Athena} SQL, and using \textbf{RDS} as the relational store.
-    \item Redesigned batch-oriented workflows around \textbf{parallel execution} and more efficient data access patterns, increasing pipeline throughput by \textbf{150\%}.
-    \item Migrated search and analytics workloads from \textbf{Elasticsearch to OpenSearch}, re-architecting ingestion and indexing flows for data consistency, stability, and faster queries.
-    \item Provisioned the data platform as code with \textbf{Terraform} and \textbf{AWS SAM}, and instrumented pipelines in \textbf{CloudWatch} and \textbf{DataDog} to catch failures and operational anomalies.
+    \item Designed, developed, and operated the \textbf{ETL pipelines} of au Denki's data platform, transforming and processing large-scale utility data for downstream analytics and operational workloads. % @V1aghi
+    \item Architected the end-to-end data flow across AWS: processing on \textbf{Lambda} and \textbf{ECS}, datasets stored in \textbf{S3}, SQL analytics through \textbf{Athena} on top of S3, and \textbf{RDS} as the relational store. % @V1bcdef !A6
+    \item Combined serverless processing on AWS Lambda with containerized batch jobs on Amazon ECS, so each pipeline stage runs on the execution model that suits its workload. % @V1bc !A14
+    \item Built the ingestion and transformation stages that turn raw utility data into structured, analytics-ready datasets for reporting and operational use. % @V1ghi !A15
+\end{itemize}
+\cvgroup{Batch Processing Optimization}
+\begin{itemize}
+    \item Optimized batch-oriented data processing workflows, increasing overall pipeline throughput by \textbf{150\%}. % @V2ae
+    \item Redesigned the batch pipelines around \textbf{parallel execution}, processing independent units of work concurrently to make better use of available compute. % @V2bc !A20
+    \item Reworked \textbf{data access patterns} inside pipeline stages so that reads and writes against S3 and RDS are more efficient per batch. % @V2d !A21
+\end{itemize}
+\cvgroup{Search and Analytics Platform}
+\begin{itemize}
+    \item Migrated the search and analytics platform from \textbf{Elasticsearch to OpenSearch}, modernizing the search infrastructure behind analytical queries. % @V3a
+    \item Redesigned the \textbf{data ingestion flows} that feed search, improving stability and keeping indexed data consistent with its source. % @V3bde !A16
+    \item Restructured \textbf{indexing flows} during the migration to improve query performance for search and analytics workloads. % @V3cf
+\end{itemize}
+\cvgroup{Data Reliability and Operations}
+\begin{itemize}
+    \item Provisioned and maintained the data platform's infrastructure as code with \textbf{Terraform}, keeping deployments of AWS data workloads consistent across releases. % @V4ac !A17
+    \item Defined and deployed the serverless pipeline components with \textbf{AWS SAM}. % @V4b
+    \item Implemented pipeline monitoring in \textbf{CloudWatch} and \textbf{DataDog} for pipeline health, failure detection, and operational anomaly detection on a platform serving millions of users. % @V4defgh
 \end{itemize}
 
-\jobVNPAY
+\jobVNPAY*[Cloud Platform Infrastructure]
 \begin{itemize}
-    \item Automated about \textbf{80\%} of data center provisioning and infrastructure configuration for a private cloud running \textbf{50+ production Kubernetes clusters}.
+    \item Designed and operated VNPAY Cloud's private cloud on \textbf{OpenStack}, running \textbf{50+ production Kubernetes clusters} for fintech and enterprise customers. % @P1abg !A10
+    \item Automated Kubernetes cluster provisioning and scaling with \textbf{Cluster API} and carried out zero-downtime upgrades of production clusters. % @P1cdef
+    \item Automated about \textbf{80\%} of data center provisioning and infrastructure configuration processes, significantly reducing manual operational effort. % @P4abc
+    \item Integrated and operated \textbf{Kong Gateway} for a microservices ecosystem of \textbf{100+ services}, enforcing service-level and network-level access control. % @P3abcd
+    \item Implemented multi-tenant authentication and authorization with \textbf{Keycloak} and RBAC, ensuring tenant isolation across \textbf{20+ customer organizations}. % @P2abcdef
 \end{itemize}
 
 \jobEsolLabs*[On-chain Data Ingestion]
 \begin{itemize}
-    \item Built \textbf{event-driven ingestion services} that capture, process, and synchronize on-chain events into off-chain databases and APIs.
-    \item Ingested from \textbf{5+ blockchain networks} (Ethereum, BSC, Polygon, Aptos, Sui) while keeping transaction handling consistent and preserving \textbf{data integrity} across chains.
+    \item Built \textbf{event-driven ingestion services} that capture and process on-chain events and synchronize them into off-chain databases and APIs. % @E2abcdef
+    \item Integrated the services with \textbf{5+ blockchain networks}, covering EVM chains (Ethereum, BSC, Polygon) and Move-based chains (Aptos, Sui). % @E3abcdef !A19
+    \item Kept transaction handling consistent and preserved \textbf{data integrity} as events moved from multiple chains into off-chain storage. % @E3gh
+    \item Developed and reviewed \textbf{15+ smart contracts} for DeFi and NFT use cases in Solidity and Move. % @E1abcdef
 \end{itemize}
 
 \cvsection{Selected Projects}
 
 \projDattingQ
 \begin{itemize}
-    \item Built a \textbf{Kafka}-based backend with MongoDB and Redis behind gRPC-Gateway, sustaining up to \textbf{1.5K requests/second} at \textbf{80--100~ms} latency.
-    \item Implemented a telemetry stack (OpenTelemetry, Prometheus, Grafana, ELK, \textbf{ClickHouse}) and multi-cluster failover, keeping the platform at \textbf{99.95\% uptime}.
+    \item Built the backend around \textbf{Kafka} for messaging, with \textbf{MongoDB} and \textbf{Redis} as data stores, exposed through gRPC-Gateway. % @D1abcd
+    \item Sustained up to \textbf{1.5K requests/second} at \textbf{80--100~ms} API latency on that stack. % @D1ef
+    \item Implemented an observability stack with OpenTelemetry, Prometheus, Grafana, ELK, and \textbf{ClickHouse}, plus multi-cluster failover, achieving \textbf{99.95\% uptime}. % @D2abcdefg
+\end{itemize}
+
+\projMeetQ
+\begin{itemize}
+    \item Built a real-time meeting platform on \textbf{LiveKit}, integrating OpenAI models for live transcription, voice translation, and meeting summarization. % @M1abcde
+    \item Designed the \textbf{real-time translation pipeline} and optimized conversational context handling to improve translation accuracy and coherence. % @M2abc
 \end{itemize}
 
 \cveducation

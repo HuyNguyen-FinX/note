@@ -1,8 +1,9 @@
 % pdf-name: DevOps_Engineer
-% Positioning: delivery automation, cluster operations, reliability.
-% VNPAY carries the deepest infrastructure content (5 bullets); Galaxy FinX
-% is told as AWS deployment + CI/CD; Vietlink as IaC + monitoring of data
-% workloads. Lending/Overdraft business logic is intentionally left out.
+% Positioning: DevOps -- delivery automation, cluster lifecycle, IaC, reliability.
+%   Primary    = VNPAY (private cloud ops, Cluster API lifecycle, automation, gateway, identity)
+%   Secondary  = Galaxy FinX (AWS deployment, CI/CD, test speed, migration workload)
+%   Supporting = Vietlink (IaC, monitoring, AWS operations), EsolLabs (backend services)
+% Tags: "% @P1ab" = facts (analysis/experience-inventory.md), "!A5" = review-needed Part A.
 \input{../templates/resume-template.tex}
 
 \begin{document}
@@ -10,55 +11,83 @@
 \cvheader{DevOps Engineer}
 
 \cvsummary{%
-DevOps-focused engineer with nearly three years of experience automating infrastructure and delivery for fintech and banking platforms. Ran cluster lifecycle operations for \textbf{50+ production Kubernetes clusters} on an OpenStack private cloud with Cluster API, including zero-downtime upgrades, and automated about \textbf{80\%} of data center provisioning. Built the AWS EKS deployment and CI/CD pipeline for a Thought Machine Vault Core banking platform. Completed the DevOps on AWS Specialization (Coursera).}
+DevOps engineer with nearly three years of experience building and operating infrastructure for fintech, banking, and utility platforms. At VNPAY Cloud, designed and operated an OpenStack private cloud running \textbf{50+ production Kubernetes clusters}, automated the cluster lifecycle with Cluster API (provisioning, scaling, and zero-downtime upgrades), and automated about \textbf{80\%} of data center provisioning. At Vikki Digital Bank, deployed Thought Machine Vault Core on AWS EKS with its CI/CD pipeline and made the simulation test stage \textbf{20x faster}. Manages infrastructure as code with Terraform and AWS SAM and monitors production with Prometheus, Grafana, CloudWatch, and DataDog. Completed the DevOps on AWS Specialization (Coursera).}
 
 \begin{cvskills}
-Kubernetes \& Containers: & Kubernetes, Cluster API, Docker, Amazon EKS, Amazon ECS, Amazon ECR \\
-Cloud: & AWS, OpenStack (private cloud) \\
+Container Orchestration: & Kubernetes, Cluster API, Amazon EKS, Amazon ECS, Docker \\
+Cloud Platforms: & AWS (EKS, ECS, ECR, ELB, Lambda, RDS, S3, CloudWatch), OpenStack \\
 Infrastructure as Code: & Terraform, AWS SAM \\
-CI/CD: & Pipeline design (build, test, deploy), Jenkins, ArgoCD, Git \\
+CI/CD \& Release: & CI/CD pipeline design (build, test, deploy), Jenkins, ArgoCD, Git, Amazon ECR \\
 Observability: & Prometheus, Grafana, OpenTelemetry, ELK, CloudWatch, DataDog \\
-Security \& Traffic: & Kong Gateway, Keycloak (RBAC, multi-tenancy), HashiCorp Vault, Consul \\
-Scripting \& Tooling: & Golang, Python \\
+Access \& Traffic Control: & Kong Gateway, Keycloak (RBAC, multi-tenancy), HashiCorp Vault, Consul \\
+Automation \& Tooling: & Golang, Python \\
 \end{cvskills}
 
 \cvsection{Work Experience}
 
 \jobGalaxyFinX*[Cloud Infrastructure \& Automation]
 \begin{itemize}
-    \item Stood up a new \textbf{Thought Machine Vault Core} release on AWS, provisioning and wiring together \textbf{EKS, RDS, ECR, and ELB} for the bank's core banking platform.
-    \item Built the platform's \textbf{CI/CD pipeline}, automating build, test, and deployment of Vault Core releases.
-    \item Replaced a Gauge-based simulation test suite with a \textbf{Golang} framework, cutting test runtime from \textbf{24 minutes to just over 50 seconds (20x faster)}.
-    \item Built and deployed the account migration workload on \textbf{ECS and Lambda} backed by RDS, reducing migration runs from \mbox{\textbf{2.5 hours to 27 minutes}}.
+    \item Deployed a new \textbf{Thought Machine Vault Core} version to AWS, standing up the infrastructure that the bank's core banking platform runs on. % @G3a
+    \item Provisioned and integrated \textbf{Amazon EKS} for the platform's workloads, \textbf{RDS} for its database, \textbf{ECR} for container images, and \textbf{Elastic Load Balancing} for traffic. % @G3bcde !A7
+    \item Set up continuous integration and delivery for Vault Core: a \textbf{CI/CD pipeline} that automates the build, test, and deployment stages. % @G3f
+    \item Rebuilt the simulation testing framework in \textbf{Golang}, replacing the Gauge-based framework and cutting test runtime from \textbf{24 minutes to just over 50 seconds (20x faster)}. % @G2abc !A11
+    \item Deployed the Golang account migration system as \textbf{ECS} tasks and \textbf{Lambda} functions over RDS; migration runs dropped from \mbox{\textbf{2.5 hours to 27 minutes (5x)}}. % @G4abcde !A18
+    \item Connected the deployed platform to the bank's external backend services for core banking operations and transaction workflows. % @G5abc
+    \item Also delivered application work on the platform: Lending and Overdraft products in Python Smart Contracts (interest accrual, penalty and late fees, repayment, settlement). % @G1abcdefgh
 \end{itemize}
 
 \jobVietlink*[Data Platform Infrastructure]
 \begin{itemize}
-    \item Managed the AWS data platform as code with \textbf{Terraform} and \textbf{AWS SAM}, covering both serverless (Lambda) and containerized (ECS) pipeline workloads.
-    \item Set up \textbf{CloudWatch} and \textbf{DataDog} monitoring for pipeline health, failures, and operational anomaly detection on a platform serving millions of users.
-    \item Operated ETL workloads across Lambda, ECS, RDS, S3, and Athena, and reworked batch execution for parallelism to raise throughput by \textbf{150\%}.
+    \item Built and maintained the data platform's AWS infrastructure as code with \textbf{Terraform}. % @V4ac
+    \item Deployed the serverless pipeline components with \textbf{AWS SAM}, alongside containerized workloads on Amazon ECS. % @V4b @V1bc
+    \item Set up \textbf{CloudWatch} monitoring for pipeline health and failures across production workloads. % @V4dfg
+    \item Added \textbf{DataDog} monitoring for operational anomaly detection on a platform serving millions of users. % @V4eh
+    \item Kept production ETL running across Lambda, ECS, RDS, S3, and Athena, the workloads that feed au Denki's analytics and operational systems. % @V1abcdefghi
+    \item Lifted batch throughput by \textbf{150\%} by parallelizing execution, redesigning pipelines, and making data access leaner. % @V2abcde
+    \item Carried the search platform through its move from \textbf{Elasticsearch to OpenSearch}, with redesigned ingestion and indexing flows for stability, consistency, and query performance. % @V3abcdef
 \end{itemize}
 
 \jobVNPAY[Cloud Platform Engineer]
+\cvgroup{Private Cloud and Cluster Lifecycle}
 \begin{itemize}
-    \item Designed and operated the \textbf{OpenStack} private cloud behind VNPAY Cloud, running \textbf{50+ production Kubernetes clusters} for fintech and enterprise customers.
-    \item Automated Kubernetes \textbf{cluster lifecycle} with \textbf{Cluster API}: declarative provisioning, scaling, and rolling upgrades with \textbf{zero downtime} on production clusters.
-    \item Automated about \textbf{80\%} of data center provisioning and infrastructure configuration, removing most manual work.
-    \item Integrated and operated \textbf{Kong Gateway} in front of \textbf{100+ microservices}, enforcing service-level and network-level access control.
-    \item Implemented multi-tenant authentication and authorization with \textbf{Keycloak} and RBAC, isolating \textbf{20+ customer organizations} on shared infrastructure.
+    \item Designed and operated the \textbf{OpenStack} private cloud behind VNPAY Cloud, the platform serving fintech and enterprise customers. % @P1ab !A10
+    \item Operated \textbf{50+ production Kubernetes clusters} on that platform across their full lifecycle. % @P1ag
+    \item Automated cluster \textbf{provisioning} with \textbf{Cluster API}, managing clusters declaratively through Kubernetes-style resources. % @P1cd !A5
+    \item Automated cluster \textbf{scaling} through the same Cluster API-based lifecycle, adjusting capacity without hand-built infrastructure changes. % @P1ce !A5
+    \item Delivered \textbf{zero-downtime upgrades} on production clusters by rolling changes through cluster machines without interrupting running workloads. % @P1f !A5
+\end{itemize}
+\cvgroup{Infrastructure Automation}
+\begin{itemize}
+    \item Automated about \textbf{80\%} of data center provisioning, turning manual setup work into repeatable automation. % @P4ac
+    \item Automated infrastructure configuration processes across the data center, significantly reducing manual operational effort. % @P4bc
+\end{itemize}
+\cvgroup{Traffic, Identity, and Multi-tenancy}
+\begin{itemize}
+    \item Integrated \textbf{Kong Gateway} into a microservices ecosystem of \textbf{100+ services} and operated it in production. % @P3ab
+    \item Implemented service-level and network-level access controls in Kong, governing access to each service at both layers. % @P3cd
+    \item Implemented multi-tenant authentication with \textbf{Keycloak}, giving each of \textbf{20+ customer organizations} its own isolated identities. % @P2acef
+    \item Implemented role-based access control on top of Keycloak to enforce tenant isolation on shared infrastructure. % @P2bde
 \end{itemize}
 
 \jobEsolLabs
 \begin{itemize}
-    \item Built event-driven backend services that sync on-chain events from \textbf{5+ blockchain networks} into off-chain databases and APIs.
+    \item Built event-driven services that capture and process on-chain events and move them into off-chain databases and APIs. % @E2abcdef
+    \item Connected them to \textbf{5+ networks} (Ethereum, BSC, Polygon, Aptos, Sui) with consistent transaction handling and data integrity. % @E3abcdefgh
+    \item Wrote and reviewed \textbf{15+} DeFi and NFT smart contracts (Solidity, Move). % @E1abcdef
 \end{itemize}
 
 \cvsection{Selected Projects}
 
 \projDattingQ
 \begin{itemize}
-    \item Implemented \textbf{multi-cluster failover} and the observability stack (OpenTelemetry, Prometheus, Grafana, ELK, ClickHouse), sustaining \textbf{99.95\% uptime}.
-    \item Built a gRPC-Gateway, Kafka, MongoDB, and Redis backend serving \textbf{1.5K requests/second} at \textbf{80--100~ms}.
+    \item Implemented \textbf{multi-cluster failover} for the backend, keeping the platform at \textbf{99.95\% uptime}. % @D2ag
+    \item Built the observability stack: OpenTelemetry instrumentation, Prometheus and Grafana metrics, ELK logging, and ClickHouse. % @D2bcdef !A22
+    \item Built a gRPC-Gateway, Kafka, MongoDB, and Redis backend serving up to \textbf{1.5K requests/second} at \textbf{80--100~ms} latency. % @D1abcdef
+\end{itemize}
+
+\projMeetQ
+\begin{itemize}
+    \item Built a real-time meeting platform on LiveKit with OpenAI-powered live transcription, voice translation, and summarization, including its real-time translation pipeline. % @M1abcde @M2a
 \end{itemize}
 
 \cveducation

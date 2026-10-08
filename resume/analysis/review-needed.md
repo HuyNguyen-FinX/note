@@ -31,6 +31,18 @@ Cách dùng: đánh dấu `[x]` vào mục bạn xác nhận đúng, gửi lại
 | A11 | Simulation framework "shortening the development feedback loop" | platform | Hệ quả trực tiếp của việc chạy test nhanh hơn 20x |
 | A12 | Chức danh chức năng (functional title), ví dụ "Data Engineer (Software Engineer)", "Platform Engineer (Software Engineer)", "Middle Software Engineer – Cloud Infrastructure & Automation" | tất cả trừ software-engineer | Chức danh chính thức luôn hiện kèm. Hãy kiểm tra từng title có phản ánh đúng công việc của bạn không (bảng đầy đủ ở `cv-differentiation-report.md`) |
 | A13 | Golang skills: "concurrency (goroutines, channels)" | golang | Kiến thức nền tảng của Go. Đây là **skill**, không phải thành tích |
+| A14 | Vietlink: kết hợp Lambda và ECS "so each pipeline stage runs on the execution model that suits its workload" | data | Diễn giải lý do chọn serverless hay container cho từng stage. Hãy xác nhận mỗi stage có thực sự được chọn theo đặc điểm workload không |
+| A15 | Vietlink: stage ingestion/transformation biến "raw utility data into structured, analytics-ready datasets" | data | Diễn giải từ "transforming and processing … for downstream analytics" |
+| A16 | OpenSearch: "keeping indexed data consistent with its source" / "consistency of indexed data" | data, golang | Diễn giải từ "improve … consistency" |
+| A17 | Terraform "keeping deployments of AWS data workloads consistent across releases" | data | Lợi ích vốn có của IaC |
+| A18 | Account migration chạy "containerized workloads on ECS **with** serverless functions on Lambda", RDS là nơi lưu migration data | data, devops, cloud, golang | Ghép 3 dịch vụ trong CV gốc. **Chưa biết phần nào chạy trên ECS, phần nào trên Lambda** (xem B1) |
+| A19 | Phân loại chain: EVM (Ethereum, BSC, Polygon) và Move-based (Aptos, Sui); Solidity cho EVM, Move cho Aptos/Sui | data, cloud, golang | Sự thật kỹ thuật về các chain |
+| A20 | Vietlink: parallel execution "processing independent units of work concurrently to make better use of available compute" | data | Diễn giải "parallel execution". "Better use of compute" là hệ quả suy ra, **không có số đo** |
+| A21 | Vietlink: data access patterns "so that reads and writes against S3 and RDS are more efficient per batch" | data | Giả định các truy cập dữ liệu nằm trên S3/RDS, vì đây là 2 nơi lưu dữ liệu duy nhất được nêu |
+| A22 | DattingQ observability: "OpenTelemetry instrumentation, Prometheus and Grafana metrics, ELK logging" | devops | Vai trò mặc định của từng công cụ. Vai trò của ClickHouse không được nêu cụ thể |
+| A23 | VNPAY RBAC "so that each tenant's users only reach their own organization's resources" | cloud | Định nghĩa của tenant isolation |
+
+> Các mã A1–A23 được gắn ngay trên từng bullet trong `latex/*.tex` (comment `% … !A16`). Muốn gỡ một diễn giải, tìm mã đó trong file `.tex` và sửa lại câu tương ứng.
 
 ---
 
@@ -102,6 +114,20 @@ Mỗi mục có bullet tiếng Anh viết sẵn. Chỉ đưa vào sau khi bạn 
 - [ ] Chạy trên Kubernetes không? Multi-cluster failover dùng cơ chế gì?
 - [ ] MeetQ viết bằng ngôn ngữ gì (Python/Go/Node.js)?
 - [ ] Hai dự án làm trong thời gian nào; là dự án cá nhân, freelance hay của công ty?
+
+### B9. Vietlink: chi tiết data engineering mà bản Data muốn có (chưa đưa vào CV)
+- [ ] **Performance bottleneck investigation:** bạn có profile hoặc đo đạc để tìm nút thắt trước khi tối ưu không? Dùng công cụ gì?
+  `Profiled the batch pipelines to locate I/O and serialization bottlenecks before redesigning them for parallel execution.`
+- [ ] **Resource efficiency:** chi phí hoặc tài nguyên (vCPU, memory, Lambda duration) có giảm không? Có số liệu không?
+- [ ] **Data modeling / SQL optimization:** có thiết kế schema trên RDS hoặc bảng Athena (partition, format) không?
+- [ ] **Data validation:** có bước kiểm tra chất lượng dữ liệu (schema, null, duplicate) trong pipeline không?
+- [ ] **Vai trò dẫn dắt:** bạn có **lead** việc migration OpenSearch hay redesign pipeline không? Nếu có, nên dùng "Led" thay cho "Migrated/Redesigned".
+
+### B10. Galaxy FinX: financial data consistency (bản Data, FinTech)
+- [ ] Hệ thống migration có **validation** trước khi ghi vào core không?
+- [ ] Có **reconciliation** sau migration không (so số dư, số tài khoản)? Xem B1.
+- [ ] Có **batching** và **retry** không? Xem B1.
+  Bullet mẫu (Data): `Validated and reconciled migrated balances against source records, with batched processing and retries for failed accounts.`
 
 ### B8. Java
 - [ ] Có dự án Java/Spring Boot nào (kể cả side project, đồ án) không? Nếu có, đưa vào Selected Projects của bản Java với link GitHub.
