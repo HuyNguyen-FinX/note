@@ -1,0 +1,65 @@
+% pdf-name: Software_Engineer
+% Positioning: general-purpose, end-to-end engineer. Each job shows a
+% different layer (product logic, tooling, data, infrastructure), framed as
+% problems solved and measured outcomes. Official titles are kept as-is.
+\input{../templates/resume-template.tex}
+
+\begin{document}
+
+\cvheader{Software Engineer}
+
+\cvsummary{%
+Software engineer with nearly three years of end-to-end delivery across banking, energy, and cloud platforms, from financial product logic and Golang tooling to AWS data pipelines and multi-tenant Kubernetes infrastructure. Consistently turns bottlenecks into measured wins: \textbf{20x faster} test execution, \textbf{5x faster} account migration, \textbf{150\%} higher batch throughput, and about \textbf{80\%} of data center provisioning automated.}
+
+\begin{cvskills}
+Languages: & Golang, Python, SQL, Java \\
+Backend Systems: & gRPC, REST, microservices, Kafka, event-driven services \\
+Data: & PostgreSQL, MongoDB, Redis, OpenSearch, ClickHouse, Amazon Athena \\
+Cloud \& Infrastructure: & AWS, OpenStack, Kubernetes, Docker, Terraform \\
+Reliability \& Delivery: & OpenTelemetry, Prometheus, Grafana, CloudWatch, DataDog, CI/CD \\
+\end{cvskills}
+
+\cvsection{Work Experience}
+
+\jobGalaxyFinX
+\begin{itemize}
+    \item \textbf{Product:} built the Lending and Overdraft products on Thought Machine Vault Core in Python, from interest accrual and late fees to repayment and settlement.
+    \item \textbf{Testing:} rebuilt the 24-minute Gauge-based simulation test suite in \textbf{Golang}; it now finishes in \textbf{just over 50 seconds (20x faster)}.
+    \item \textbf{Data:} built the account migration system in Golang on ECS, Lambda, and RDS, bringing a migration from \mbox{\textbf{2.5 hours down to 27 minutes}}.
+    \item \textbf{Delivery:} deployed the new Vault Core version on AWS EKS with its CI/CD pipeline, and integrated the platform with external backend services.
+\end{itemize}
+
+\jobVietlink
+\begin{itemize}
+    \item Designed and ran AWS ETL pipelines that turn large-scale utility data into inputs for analytics and operations.
+    \item Redesigned batch workflows with parallel execution and leaner data access, raising pipeline throughput by \textbf{150\%}.
+    \item Migrated search and analytics from \textbf{Elasticsearch to OpenSearch}, rebuilding ingestion and indexing for stability and better query performance.
+\end{itemize}
+
+\jobVNPAY
+\begin{itemize}
+    \item Designed and operated a private cloud on OpenStack and Cluster API serving \textbf{50+ production Kubernetes clusters} with zero-downtime upgrades.
+    \item Secured a \textbf{100+ service} microservices ecosystem with Kong Gateway access control and Keycloak-based multi-tenant RBAC for \textbf{20+ customer organizations}.
+    \item Automated about \textbf{80\%} of data center provisioning and infrastructure configuration.
+\end{itemize}
+
+\jobEsolLabs
+\begin{itemize}
+    \item Wrote and reviewed \textbf{15+ smart contracts} in Solidity and Move, and built the event-driven services linking them to off-chain databases across \textbf{5+ blockchain networks}.
+\end{itemize}
+
+\cvsection{Selected Projects}
+
+\projDattingQ
+\begin{itemize}
+    \item Built a gRPC-Gateway, Kafka, MongoDB, and Redis backend at up to \textbf{1.5K requests/second} and \textbf{80--100~ms} latency, with multi-cluster failover for \textbf{99.95\% uptime}.
+\end{itemize}
+
+\projMeetQ
+\begin{itemize}
+    \item Built a LiveKit meeting platform with OpenAI-powered live transcription, voice translation, and summaries, and designed its real-time translation pipeline.
+\end{itemize}
+
+\cveducation
+
+\end{document}

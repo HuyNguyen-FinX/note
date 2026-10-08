@@ -1,0 +1,63 @@
+% pdf-name: Java_Backend_Engineer
+% Positioning: backend competencies that transfer to Java/Spring Boot --
+% transaction processing, REST/gRPC APIs, microservices, authN/authZ,
+% relational data, Kafka/Redis, automated testing.
+% Honesty: no Golang/Python system is presented as Java. Java and Spring
+% Boot appear only as skills (as in the source CV); production languages
+% are named explicitly.
+\input{../templates/resume-template.tex}
+
+\begin{document}
+
+\cvheader{Java Backend Engineer}
+
+\cvsummary{%
+Backend engineer moving into Java/Spring Boot, with nearly three years building transactional, integration-heavy backends in Golang and Python: lending and overdraft transaction logic on a core banking platform, a microservices ecosystem of \textbf{100+ services} behind an API gateway, Keycloak-based multi-tenant authorization, and Kafka, Redis, and MongoDB services handling \textbf{1.5K requests/second}. Working knowledge of \textbf{Java} and \textbf{Spring Boot}.}
+
+\begin{cvskills}
+Languages: & Java, Spring Boot (working knowledge); Golang, Python, SQL (production) \\
+APIs \& Architecture: & REST/JSON, gRPC, microservices, API gateway (Kong), event-driven services \\
+Security: & Authentication and authorization, Keycloak, RBAC, multi-tenancy \\
+Data \& Messaging: & PostgreSQL, Redis, MongoDB, OpenSearch, Kafka, RabbitMQ \\
+Testing \& Delivery: & Automated simulation testing, CI/CD, Docker, Kubernetes, Jenkins, Git \\
+Cloud: & AWS (EKS, ECS, RDS, Lambda) \\
+\end{cvskills}
+
+\cvsection{Work Experience}
+
+\jobGalaxyFinX[Backend Engineer, Core Banking]
+\begin{itemize}
+    \item Modeled \textbf{financial transactions} for Lending and Overdraft (accrual of interest, penalty and late fees, repayments, settlement) inside Thought Machine Vault Core's Python contract framework.
+    \item Made the product test suite \textbf{20x faster} (24 minutes to just over 50 seconds) by replacing the Gauge-based \textbf{simulation testing framework} with one written in Golang.
+    \item Cut account migration from \mbox{\textbf{2.5 hours to 27 minutes (5x)}} with a dedicated migration system over \textbf{Amazon RDS}, written in Golang and run on ECS and Lambda.
+    \item Shipped the platform through a \textbf{CI/CD pipeline} (build, test, deploy) onto Amazon EKS, with container images in ECR and traffic through ELB.
+\end{itemize}
+
+\jobVietlink*[Backend \& Data Services]
+\begin{itemize}
+    \item Reworked \textbf{data access patterns} and parallelized batch processing, increasing throughput by \textbf{150\%}.
+    \item Moved the search and analytics service from \textbf{Elasticsearch to OpenSearch}, redesigning ingestion and indexing for data consistency and query performance.
+\end{itemize}
+
+\jobVNPAY*[Microservices \& Identity]
+\begin{itemize}
+    \item Implemented the \textbf{authorization model} of a multi-tenant cloud platform: Keycloak identities plus \textbf{role-based access control} that keep \textbf{20+ customer organizations} isolated from each other.
+    \item Centralized service-level and network-level access control for a \textbf{microservices ecosystem of 100+ services} in \textbf{Kong Gateway}.
+\end{itemize}
+
+\jobEsolLabs
+\begin{itemize}
+    \item Kept transaction handling consistent across \textbf{5+ blockchain networks} in event-driven services that write on-chain events into off-chain databases.
+\end{itemize}
+
+\cvsection{Selected Projects}
+
+\projDattingQ
+\begin{itemize}
+    \item Built a backend exposing \textbf{REST/JSON APIs} through gRPC-Gateway, with \textbf{Kafka}, \textbf{Redis}, and MongoDB, sustaining up to \textbf{1.5K requests/second} at \textbf{80--100~ms}.
+    \item Implemented multi-cluster failover and observability (OpenTelemetry, Prometheus, Grafana, ELK) for \textbf{99.95\% uptime}.
+\end{itemize}
+
+\cveducation
+
+\end{document}

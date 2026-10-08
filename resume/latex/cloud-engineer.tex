@@ -1,0 +1,64 @@
+% pdf-name: Cloud_Engineer
+% Positioning: cloud architecture and services, public + private cloud,
+% provisioning, identity/access, networking, scalability.
+% Differs from DevOps: bullets describe what was built on which cloud
+% services and how tenants/traffic are isolated, not delivery workflow.
+\input{../templates/resume-template.tex}
+
+\begin{document}
+
+\cvheader{Cloud Engineer}
+
+\cvsummary{%
+Cloud engineer with production experience on both public and private cloud. On \textbf{AWS}, has provisioned and operated workloads on EKS, ECS, Lambda, RDS, S3, Athena, ECR, and Elastic Load Balancing for a digital bank and for a utility platform serving millions of users. On private cloud, designed and operated VNPAY Cloud's \textbf{OpenStack} platform hosting \textbf{50+ production Kubernetes clusters}, with identity-based tenant isolation for \textbf{20+ customer organizations}.}
+
+\begin{cvskills}
+AWS Compute: & Amazon EKS, Amazon ECS, AWS Lambda, Amazon ECR \\
+AWS Data \& Network: & Amazon RDS, Amazon S3, Amazon Athena, Elastic Load Balancing \\
+Private Cloud: & OpenStack, Cluster API, Kubernetes, Docker \\
+Provisioning: & Terraform, AWS SAM \\
+Identity \& Access: & Keycloak, RBAC, multi-tenant isolation, Kong Gateway, HashiCorp Vault \\
+Cloud Operations: & CloudWatch, DataDog, Prometheus, Grafana \\
+Languages: & Golang, Python \\
+\end{cvskills}
+
+\cvsection{Work Experience}
+
+\jobGalaxyFinX*[AWS Cloud Infrastructure]
+\begin{itemize}
+    \item Deployed a new Thought Machine Vault Core version on AWS, running the platform on \textbf{EKS} with \textbf{RDS} as its database, \textbf{ECR} for container images, and \textbf{ELB} for load balancing.
+    \item Built the account migration system on a mix of \textbf{ECS} containers and \textbf{Lambda} functions over RDS (Golang), cutting migration time from \mbox{\textbf{2.5 hours to 27 minutes (5x faster)}}.
+    \item Automated releases of the platform with a CI/CD pipeline covering build, test, and deployment.
+\end{itemize}
+
+\jobVietlink*[AWS Data Platform]
+\begin{itemize}
+    \item Built and operated serverless and containerized ETL on \textbf{Lambda, ECS, S3, Athena, and RDS}, processing large-scale utility data for au Denki.
+    \item Provisioned the platform's AWS resources with \textbf{Terraform} and \textbf{AWS SAM}, and monitored them with \textbf{CloudWatch} and \textbf{DataDog}.
+    \item Scaled batch processing throughput by \textbf{150\%} by reworking pipelines for parallel execution and leaner data access.
+\end{itemize}
+
+\jobVNPAY[Cloud Engineer, OpenStack \& Kubernetes]
+\begin{itemize}
+    \item Designed and operated the \textbf{OpenStack}-based private cloud behind VNPAY Cloud, hosting \textbf{50+ production Kubernetes clusters} for a fintech and enterprise customer base.
+    \item Used \textbf{Cluster API} to provision and scale Kubernetes clusters on OpenStack infrastructure declaratively and to roll out \textbf{zero-downtime upgrades}.
+    \item Implemented tenant isolation for \textbf{20+ customer organizations} with \textbf{Keycloak}-based multi-tenant authentication and role-based access control.
+    \item Controlled service-level and network-level access for \textbf{100+ microservices} through \textbf{Kong Gateway}.
+    \item Automated about \textbf{80\%} of data center provisioning and infrastructure configuration.
+\end{itemize}
+
+\jobEsolLabs
+\begin{itemize}
+    \item Built event-driven services syncing on-chain events into off-chain databases across \textbf{5+ blockchain networks}.
+\end{itemize}
+
+\cvsection{Selected Projects}
+
+\projDattingQ
+\begin{itemize}
+    \item Ran the backend across multiple clusters with \textbf{failover}, monitored through OpenTelemetry, Prometheus, Grafana, ELK, and ClickHouse, at \textbf{99.95\% uptime} and up to \textbf{1.5K requests/second}.
+\end{itemize}
+
+\cveducation
+
+\end{document}

@@ -1,0 +1,61 @@
+% pdf-name: Platform_Engineer
+% Positioning: shared foundations other engineers build on -- Kubernetes
+% platform, gateway + identity as shared services, internal tooling and
+% test infrastructure, delivery paths. VNPAY = platform product;
+% Galaxy FinX = internal tooling / developer experience.
+\input{../templates/resume-template.tex}
+
+\begin{document}
+
+\cvheader{Platform Engineer}
+
+\cvsummary{%
+Platform engineer who builds the shared foundations other engineers ship on. At VNPAY Cloud, ran a multi-tenant Kubernetes platform of \textbf{50+ production clusters} on OpenStack and Cluster API, with shared API gateway (Kong, \textbf{100+ services}) and identity (Keycloak, \textbf{20+ tenant organizations}) layers. At a digital bank, built internal tooling: a Golang simulation testing framework that turned a \textbf{24-minute} test run into \textbf{under a minute}, and the AWS delivery path for the core banking platform.}
+
+\begin{cvskills}
+Kubernetes Platform: & Kubernetes, Cluster API, OpenStack, Docker, Amazon EKS \\
+Shared Platform Services: & Kong Gateway (API gateway), Keycloak (identity, RBAC, multi-tenancy), Consul, HashiCorp Vault \\
+Developer Tooling: & Test frameworks in Golang, CI/CD pipelines, Jenkins, ArgoCD, Git \\
+Infrastructure as Code: & Terraform, AWS SAM \\
+Observability: & OpenTelemetry, Prometheus, Grafana, ELK, CloudWatch, DataDog \\
+Languages: & Golang, Python \\
+\end{cvskills}
+
+\cvsection{Work Experience}
+
+\jobGalaxyFinX*[Internal Tooling \& Delivery Platform]
+\begin{itemize}
+    \item Rebuilt the team's \textbf{simulation testing framework} from a Gauge-based suite into a \textbf{Golang} framework, cutting execution from \textbf{24 minutes to just over 50 seconds (20x faster)} and shortening the development feedback loop.
+    \item Built the delivery path for the Vault Core platform: AWS infrastructure on \textbf{EKS, RDS, ECR, and ELB} plus a \textbf{CI/CD pipeline} that automates build, test, and deployment.
+    \item Built the account migration tooling in Golang on ECS, Lambda, and RDS, reducing a migration run from \mbox{\textbf{2.5 hours to 27 minutes (5x faster)}}.
+\end{itemize}
+
+\jobVietlink*[Data Platform]
+\begin{itemize}
+    \item Codified the data platform with \textbf{Terraform} and \textbf{AWS SAM}, and gave it \textbf{CloudWatch} and \textbf{DataDog} monitoring for pipeline health, failures, and anomalies.
+    \item Moved the platform's search and analytics backend from \textbf{Elasticsearch to OpenSearch}, redesigning ingestion and indexing flows for stability and consistency.
+\end{itemize}
+
+\jobVNPAY[Platform Engineer]
+\begin{itemize}
+    \item Built and operated VNPAY Cloud's \textbf{Kubernetes platform} on OpenStack and \textbf{Cluster API}, offering automated cluster provisioning, scaling, and \textbf{zero-downtime upgrades} across \textbf{50+ production clusters}.
+    \item Ran \textbf{Kong Gateway} as the shared API gateway for a \textbf{100+ service} ecosystem, centralizing service-level and network-level access control in one layer.
+    \item Delivered multi-tenant identity as a platform capability with \textbf{Keycloak} and RBAC, giving \textbf{20+ customer organizations} isolated authentication and authorization.
+    \item Turned about \textbf{80\%} of data center provisioning and infrastructure configuration into automation, replacing manual operational processes.
+\end{itemize}
+
+\jobEsolLabs
+\begin{itemize}
+    \item Built event-driven backend services synchronizing on-chain events from \textbf{5+ blockchain networks} into off-chain databases and APIs.
+\end{itemize}
+
+\cvsection{Selected Projects}
+
+\projDattingQ
+\begin{itemize}
+    \item Implemented \textbf{multi-cluster failover} and a shared observability stack (\textbf{OpenTelemetry, Prometheus, Grafana, ELK, ClickHouse}), keeping the platform at \textbf{99.95\% uptime}.
+\end{itemize}
+
+\cveducation
+
+\end{document}

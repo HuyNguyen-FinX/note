@@ -1,0 +1,66 @@
+% pdf-name: Python_Backend_Engineer
+% Positioning: Python application development for financial logic.
+% Galaxy FinX goes deep on the Vault Core contract work (interest lifecycle,
+% repayment, settlement, scheduled events, correctness, testing).
+% Python is only attributed where the source CV confirms it (Smart Contracts).
+\input{../templates/resume-template.tex}
+
+\begin{document}
+
+\cvheader{Python Backend Engineer}
+
+\cvsummary{%
+Python backend engineer working in core banking: develops and maintains the \textbf{Lending} and \textbf{Overdraft} products of Vikki Digital Bank as \textbf{Python Smart Contracts} on Thought Machine Vault Core, covering the interest, fee, repayment, and settlement lifecycle. Brings nearly three years of backend and data experience, including core banking integrations, AWS ETL pipelines for a utility platform serving millions of users, and test automation.}
+
+\begin{cvskills}
+Python: & Python 3, Vault Core Smart Contracts, FastAPI \\
+Financial Logic: & Lending, overdraft, interest accrual, penalty and late fees, repayment, settlement \\
+Backend \& APIs: & REST/JSON and gRPC APIs, Kafka, event-driven services, Keycloak (RBAC) \\
+Data: & SQL, PostgreSQL, Redis, MongoDB, OpenSearch, Amazon Athena \\
+AWS: & Lambda, ECS, RDS, S3, EKS \\
+Also used: & Golang (testing framework, migration system) \\
+\end{cvskills}
+
+\cvsection{Work Experience}
+
+\jobGalaxyFinX[Python Backend Engineer, Core Banking]
+\begin{itemize}
+    \item Developed and maintained the \textbf{Lending} and \textbf{Overdraft} products as \textbf{Python Smart Contracts} on Thought Machine Vault Core, the bank's core ledger.
+    \item Implemented the \textbf{interest lifecycle} in contract code, including interest accrual plus penalty and late-fee calculation, driven by Vault Core's contract hooks and \textbf{scheduled events}.
+    \item Implemented \textbf{repayment and settlement} processing for both products, where every calculation flows directly into customer balances.
+    \item Integrated Vault Core with external backend services that run core banking operations and transaction workflows.
+    \item Rebuilt the product \textbf{simulation testing framework} (in Golang, replacing Gauge), cutting test runs from \textbf{24 minutes to just over 50 seconds}, and built a 5x faster account migration system.
+\end{itemize}
+
+\jobVietlink*[Data Processing]
+\begin{itemize}
+    \item Built and operated \textbf{ETL pipelines} on AWS Lambda, ECS, RDS, S3, and Athena, transforming large-scale utility data for analytics and operational workloads.
+    \item Increased batch processing throughput by \textbf{150\%} by redesigning pipelines, running work in parallel, and optimizing data access patterns.
+\end{itemize}
+
+\jobVNPAY
+\begin{itemize}
+    \item Implemented tenant-isolated login and permissions for \textbf{20+ customer organizations} with Keycloak authentication and role-based access control.
+\end{itemize}
+
+\jobEsolLabs
+\begin{itemize}
+    \item Developed and reviewed \textbf{15+ smart contracts} for DeFi and NFT products in Solidity and Move, plus services syncing on-chain events into off-chain databases.
+\end{itemize}
+
+\cvsection{Selected Projects}
+
+\projMeetQ
+\begin{itemize}
+    \item Built a real-time meeting platform on \textbf{LiveKit}, integrating \textbf{OpenAI models} for live transcription, voice translation, and meeting summarization.
+    \item Designed the \textbf{real-time translation pipeline} and optimized conversational context handling to improve translation accuracy and coherence.
+\end{itemize}
+
+\projDattingQ
+\begin{itemize}
+    \item Built a gRPC-Gateway, Kafka, MongoDB, and Redis backend: \textbf{1.5K requests/second}, \textbf{99.95\% uptime}.
+\end{itemize}
+
+\cveducation
+
+\end{document}

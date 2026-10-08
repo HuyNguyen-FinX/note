@@ -1,0 +1,463 @@
+\documentclass[a4paper,10pt]{article}
+
+% =========================================================
+% FONT & ENCODING
+% =========================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{CJKutf8}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% =========================================================
+% PAGE SETUP1
+% =========================================================
+\usepackage[
+    a4paper,
+    top=0.75cm,
+    bottom=0.75cm,
+    left=1.2cm,
+    right=1.2cm
+]{geometry}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{microtype}
+
+\pagestyle{empty}
+\raggedbottom
+
+% =========================================================
+% GENERAL SPACING
+% =========================================================
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% =========================================================
+% BULLET STYLE
+% =========================================================
+\setlist[itemize]{
+    leftmargin=1.2em,
+    label=\raisebox{0.15ex}{\scriptsize$\bullet$},
+    itemsep=0pt,
+    topsep=1pt,
+    parsep=0pt,
+    partopsep=0pt
+}
+
+% =========================================================
+% SECTION STYLE
+% =========================================================
+\newcommand{\cvsection}[1]{%
+    \par
+    \vspace{4pt}%
+    \noindent
+    {\normalsize\textbf{#1}}%
+    \par
+    \vspace{1pt}%
+    \hrule height 0.5pt
+    \vspace{2.5pt}%
+}
+
+
+
+% =========================================================
+% EXPERIENCE TITLE
+% =========================================================
+\newcommand{\experience}[3]{%
+    \noindent
+    \textbf{#1}
+    \hspace{3pt}\textbar\hspace{3pt}
+    \textbf{#2}
+    \hfill
+    \textit{#3}
+    \par
+}
+
+% =========================================================
+% COMPANY DESCRIPTION
+% =========================================================
+\newcommand{\companydesc}[1]{%
+    \vspace{0.8pt}
+    {\small\textit{#1}}
+    \par
+    \vspace{-0.6pt}
+}
+
+% =========================================================
+% PROJECT TITLE
+% =========================================================
+\newcommand{\project}[2]{%
+    \noindent
+    \textbf{#1}
+    \hspace{3pt}\textbar\hspace{3pt}
+    #2
+    \par
+}
+
+% =========================================================
+% SPACE BETWEEN JOBS / PROJECTS
+% =========================================================
+\newcommand{\jobspace}{%
+    \vspace{2pt}
+}
+
+% =========================================================
+% DOCUMENT
+% =========================================================
+\begin{document}
+
+\fontsize{9.5pt}{10.6pt}\selectfont
+
+% =========================================================
+% HEADER
+% =========================================================
+
+\begin{center}
+
+    {\LARGE\textbf{NGUYEN GIA HUY}}\\[1.5pt]
+
+    {\normalsize\textbf{SOFTWARE ENGINEER}}\\[3pt]
+
+    {\small
+    \href{mailto:johnnynguyen882@gmail.com}
+    {johnnynguyen882@gmail.com}
+    \quad | \quad
+    0948385149
+    \quad | \quad
+    \href{https://www.linkedin.com/in/huy8bit/}
+    {linkedin.com/in/huy8bit}
+    }
+
+\end{center}
+
+\vspace{-4pt}
+
+
+% =========================================================
+% SKILLS
+% =========================================================
+
+\cvsection{SKILLS}
+
+{\small
+\renewcommand{\arraystretch}{1.01}
+
+\begin{tabularx}{\textwidth}{
+    @{}
+    >{\bfseries}l
+    @{\hspace{9pt}}
+    >{\raggedright\arraybackslash}X
+    @{}
+}
+
+Programming Languages: &
+Golang, Python, Java \\
+
+Databases: &
+PostgreSQL, MongoDB, Redis, Elasticsearch, OpenSearch, ClickHouse \\
+
+Messaging \& Streaming: &
+Kafka, RabbitMQ \\
+
+Cloud \& Infrastructure: &
+AWS, OpenStack, Kubernetes, Terraform, Docker, Consul, Vault \\
+
+Core Banking: &
+Vault Core (Thought Machine) \\
+
+Observability: &
+OpenTelemetry, Prometheus, Grafana, ELK \\
+
+APIs \& Frameworks: &
+Spring Boot, FastAPI, gRPC \\
+
+CI/CD \& Tooling: &
+Git, Jenkins, ArgoCD, Postman \\
+
+\end{tabularx}
+}
+
+
+% =========================================================
+% EXPERIENCE
+% =========================================================
+
+\cvsection{EXPERIENCE}
+
+% ---------------------------------------------------------
+% GALAXY FINX
+% ---------------------------------------------------------
+
+\experience
+{Galaxy FinX (Vikki Digital Bank)}
+{Middle Software Engineer, Core Banking}
+{03/2026 -- Present}
+
+\companydesc{
+Vikki Digital Bank -- Core banking platform built on Thought Machine Vault Core
+}
+
+\begin{itemize}
+
+    \item Developed and maintained
+    \textbf{Lending} and \textbf{Overdraft}
+    products on \textbf{Vault Core}, implementing
+    interest accrual, penalty and late-fee calculation,
+    repayment, and settlement logic using
+    \textbf{Python Smart Contracts}.
+
+    \item Rebuilt the simulation testing framework entirely
+    in Golang, replacing the legacy Gauge-based framework
+    and reducing execution time from
+    \textbf{24 minutes to just over 50 seconds}
+    (\textbf{20x faster}).
+
+    \item Deployed a new \textbf{Vault Core} version on
+    \textbf{AWS}, provisioning and integrating
+    \textbf{EKS, RDS, ECR, and ELB}, and built the
+    \textbf{CI/CD pipeline} for automated build, test,
+    and deployment.
+
+    \item Built an account migration system using
+    Golang and AWS (ECS, Lambda, RDS), reducing migration
+    time from \textbf{2.5 hours to 27 minutes}
+    (\textbf{5x faster}).
+
+    \item Integrated \textbf{Vault Core} with
+    \textbf{external backend services} to support core
+    banking operations and transaction workflows.
+
+\end{itemize}
+
+\jobspace
+
+% ---------------------------------------------------------
+% VIETLINK
+% ---------------------------------------------------------
+
+\experience
+{Vietlink (KDDI Agile Development Center Group)}
+{Software Engineer}
+{04/2025 -- 03/2026}
+
+\vspace{0.8pt}
+
+{\small\textit{
+\begin{CJK}{UTF8}{min}
+auでんき
+\end{CJK}
+-- Large-scale electric utility platform serving millions of users
+}}
+
+\vspace{-0.6pt}
+
+\begin{itemize}
+
+    \item Designed, developed, and operated
+    \textbf{ETL data pipelines} on AWS using
+    \textbf{Lambda, ECS, RDS, S3, and Athena},
+    transforming and processing large-scale utility data
+    for downstream analytics and operational workloads.
+
+    \item Optimized batch-oriented data processing workflows,
+    improving processing throughput by \textbf{150\%}
+    through pipeline redesign, parallel execution, and
+    more efficient data access patterns.
+
+    \item Migrated the search and analytics platform from
+    \textbf{Elasticsearch} to \textbf{OpenSearch},
+    redesigning data ingestion and indexing flows to improve
+    stability, consistency, and query performance.
+
+    \item Built and maintained data-platform infrastructure
+    using \textbf{Terraform} and \textbf{AWS SAM}, and
+    implemented monitoring with \textbf{CloudWatch} and
+    \textbf{DataDog} for pipeline health, failures, and
+    operational anomaly detection.
+
+\end{itemize}
+
+\jobspace
+
+% ---------------------------------------------------------
+% VNPAY
+% ---------------------------------------------------------
+
+\experience
+{VNPAY}
+{Software Engineer}
+{04/2024 -- 04/2025}
+
+\companydesc{
+VNPAY Cloud -- Cloud platform for fintech and enterprise customers
+}
+
+\begin{itemize}
+
+    \item Designed and operated a private cloud platform
+    based on OpenStack and Cluster API, enabling automated
+    provisioning, scaling, and zero-downtime upgrades for
+    \textbf{50+ production Kubernetes clusters}.
+
+    \item Implemented multi-tenant authentication and
+    authorization using Keycloak and role-based access
+    control, ensuring tenant isolation across
+    \textbf{20+ customer organizations}.
+
+    \item Integrated and operated Kong Gateway for a
+    microservices ecosystem of \textbf{100+ services},
+    implementing service-level and network-level
+    access controls.
+
+    \item Automated approximately \textbf{80\%} of data
+    center provisioning and infrastructure configuration
+    processes, significantly reducing manual operational
+    effort.
+
+\end{itemize}
+
+\jobspace
+
+% ---------------------------------------------------------
+% FREELANCE BLOCKCHAIN DEVELOPER
+% ---------------------------------------------------------
+
+% \experience
+% {Freelance}
+% {Blockchain Developer}
+% {09/2023 -- 03/2024}
+
+% \companydesc{
+% Independent Web3 development projects
+% }
+
+% \begin{itemize}
+
+%     \item Developed and deployed \textbf{Solidity smart contracts}
+%     for Web3 applications, including token, NFT, marketplace,
+%     and on-chain transaction workflows.
+
+%     \item Integrated smart contracts with
+%     \textbf{Web3 applications and backend services}, implementing
+%     wallet connectivity, contract interactions, transaction
+%     handling, and blockchain data synchronization.
+
+%     \item Built supporting APIs and off-chain components using
+%     \textbf{Python} and \textbf{Node.js}, working with clients
+%     from requirement clarification through testing and deployment.
+
+% \end{itemize}
+
+\jobspace
+
+% ---------------------------------------------------------
+% ESOLLABS
+% ---------------------------------------------------------
+
+\experience
+{EsolLabs}
+{Blockchain Developer}
+{06/2023 -- 09/2023}
+
+\companydesc{
+Innovaz Market Factory -- Cross-chain NFT and token platform
+}
+
+\begin{itemize}
+
+    \item Developed and reviewed
+    \textbf{15+ smart contracts}
+    for DeFi and NFT use cases using Solidity and Move.
+
+    \item Built \textbf{event-driven backend services}
+    to capture, process, and synchronize on-chain events
+    into \textbf{off-chain databases and APIs}.
+
+    \item Integrated backend services with
+    \textbf{5+ blockchain networks}, including Ethereum,
+    BSC, Polygon, Aptos, and Sui, ensuring consistent
+    transaction handling and data integrity.
+
+\end{itemize}
+
+% =========================================================
+% PROJECTS
+% =========================================================
+
+\cvsection{PROJECTS}
+
+% ---------------------------------------------------------
+% DATTINGQ
+% ---------------------------------------------------------
+
+\project
+{DattingQ -- Software Engineer}
+{Dating platform}
+
+\begin{itemize}
+
+    \item Built the backend using gRPC-Gateway, Kafka,
+    MongoDB, and Redis, supporting up to
+    \textbf{1.5K requests/second} with
+    \textbf{80--100ms API latency}.
+
+    \item Implemented multi-cluster failover and
+    observability with OpenTelemetry, Prometheus,
+    Grafana, ELK, and ClickHouse, achieving
+    \textbf{99.95\% uptime}.
+
+\end{itemize}
+
+\jobspace
+
+% ---------------------------------------------------------
+% MEETQ
+% ---------------------------------------------------------
+
+\project
+3{MeetQ -- Software Engineer}
+{AI-powered online meeting platform}
+
+\begin{itemize}
+
+    \item Built a real-time meeting platform on
+    \textbf{LiveKit}, integrating
+    \textbf{OpenAI models} for live transcription,
+    voice translation, and meeting summarization.
+
+    \item Designed the
+    \textbf{real-time translation pipeline}
+    and optimized \textbf{conversational context handling}
+    to improve translation accuracy and coherence.
+
+\end{itemize}
+
+
+
+% =========================================================
+% EDUCATION & CERTIFICATIONS
+% =========================================================
+
+\cvsection{EDUCATION \& CERTIFICATIONS}
+
+\noindent
+\textbf{University of Science, Ho Chi Minh City (HCMUS)}
+\hfill
+\textit{B.Sc. Information Technology -- Knowledge Engineering}
+
+\vspace{1.5pt}
+
+\noindent
+\textbf{DevOps on AWS Specialization -- Coursera}
+\hfill
+\href{
+https://www.coursera.org/account/accomplishments/specialization/UDQ2L4ER9CYC
+}{
+Certificate
+}
+
+\end{document}

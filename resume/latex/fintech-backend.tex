@@ -1,0 +1,65 @@
+% pdf-name: FinTech_Backend_Engineer
+% Positioning: core banking / fintech backend. Galaxy FinX is the centre
+% (6 bullets on products, interest and repayment lifecycle, integration,
+% migration, verification). VNPAY = security of a fintech cloud;
+% EsolLabs = transaction integrity and DeFi. Vietlink is condensed.
+\input{../templates/resume-template.tex}
+
+\begin{document}
+
+\cvheader{FinTech Backend Engineer -- Core Banking}
+
+\cvsummary{%
+Core banking engineer at Vikki Digital Bank, building the \textbf{Lending} and \textbf{Overdraft} products on \textbf{Thought Machine Vault Core} (interest accrual, penalty and late fees, repayment, and settlement) together with the integrations, migration tooling, and test infrastructure around them. Nearly three years of experience, including fintech platform security at VNPAY Cloud (tenant isolation for \textbf{20+} fintech and enterprise customer organizations) and transaction integrity across \textbf{5+} blockchain networks.}
+
+\begin{cvskills}
+Core Banking: & Thought Machine Vault Core, Python Smart Contracts, product simulation testing \\
+Banking Products: & Lending, overdraft; interest accrual, penalty and late fees, repayment, settlement \\
+Languages: & Python, Golang, SQL \\
+Integration \& Data: & gRPC, REST/JSON, Kafka, PostgreSQL, Redis \\
+Security: & Keycloak (multi-tenant RBAC), Kong Gateway, HashiCorp Vault \\
+Cloud: & AWS (EKS, ECS, Lambda, RDS, ECR, ELB), Kubernetes \\
+DeFi: & Solidity, Move, Ethereum, BSC, Polygon, Aptos, Sui \\
+\end{cvskills}
+
+\cvsection{Work Experience}
+
+\jobGalaxyFinX
+\begin{itemize}
+    \item Developed and maintained the bank's \textbf{Lending} and \textbf{Overdraft} products as Python Smart Contracts on \textbf{Thought Machine Vault Core}.
+    \item Implemented the \textbf{interest lifecycle} for both products: interest accrual plus penalty and late-fee calculation, scheduled through Vault Core events.
+    \item Implemented \textbf{repayment and settlement} logic, the paths that move money and close out customer obligations.
+    \item Integrated Vault Core with \textbf{external banking services} supporting core banking operations and transaction workflows.
+    \item Built the \textbf{account migration system} (Golang on AWS ECS, Lambda, RDS), cutting migration time from \mbox{\textbf{2.5 hours to 27 minutes (5x faster)}}.
+    \item Rebuilt the product \textbf{simulation testing framework} in Golang, so contract behaviour is verified in \textbf{just over 50 seconds instead of 24 minutes}.
+\end{itemize}
+
+\jobVietlink
+\begin{itemize}
+    \item Built and operated AWS ETL pipelines for large-scale utility data (\textbf{150\%} throughput gain) and migrated search from Elasticsearch to OpenSearch.
+\end{itemize}
+
+\jobVNPAY*[Fintech Cloud Platform]
+\begin{itemize}
+    \item Implemented multi-tenant authentication and authorization with \textbf{Keycloak} and RBAC, isolating \textbf{20+ fintech and enterprise customer organizations}.
+    \item Enforced service-level and network-level access control for \textbf{100+ microservices} through \textbf{Kong Gateway}.
+    \item Operated \textbf{50+ production Kubernetes clusters} on OpenStack and Cluster API with zero-downtime upgrades.
+\end{itemize}
+
+\jobEsolLabs*[DeFi \& Transaction Systems]
+\begin{itemize}
+    \item Integrated backend services with \textbf{5+ blockchain networks} (Ethereum, BSC, Polygon, Aptos, Sui), ensuring consistent \textbf{transaction handling and data integrity}.
+    \item Developed and reviewed \textbf{15+ smart contracts} for DeFi and NFT use cases in Solidity and Move.
+    \item Built event-driven services that synchronize on-chain events into off-chain databases and APIs.
+\end{itemize}
+
+\cvsection{Selected Projects}
+
+\projDattingQ
+\begin{itemize}
+    \item Built a gRPC-Gateway, Kafka, MongoDB, and Redis backend (\textbf{1.5K requests/second}, \textbf{80--100~ms}) with multi-cluster failover for \textbf{99.95\% uptime}.
+\end{itemize}
+
+\cveducation
+
+\end{document}

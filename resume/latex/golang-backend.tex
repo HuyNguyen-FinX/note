@@ -1,0 +1,61 @@
+% pdf-name: Golang_Backend_Engineer
+% Positioning: Go services and tooling with hard performance numbers,
+% gRPC/gRPC-Gateway, messaging, datastores, microservices.
+% Galaxy FinX: the two Go systems lead with engineering detail.
+% DattingQ (gRPC-Gateway, Kafka, MongoDB, Redis) is promoted to a key project.
+\input{../templates/resume-template.tex}
+
+\begin{document}
+
+\cvheader{Golang Backend Engineer}
+
+\cvsummary{%
+Golang backend engineer with nearly three years of software engineering experience, building performance-critical services and tooling for core banking. In Go, delivered an AWS account migration system that runs \textbf{5x faster} (2.5 hours to 27 minutes) and a simulation testing framework \textbf{20x faster} than the Gauge-based suite it replaced. Builds gRPC and gRPC-Gateway backends on Kafka, MongoDB, and Redis that serve \textbf{1.5K requests/second} at \textbf{80--100~ms} latency.}
+
+\begin{cvskills}
+Golang: & Go, concurrency (goroutines, channels), gRPC, gRPC-Gateway, Protocol Buffers, REST/JSON APIs \\
+Messaging: & Kafka, RabbitMQ \\
+Data Stores: & PostgreSQL, MongoDB, Redis, OpenSearch, ClickHouse \\
+Microservices: & API gateway (Kong), Keycloak (RBAC), Docker, Kubernetes \\
+Cloud: & AWS (ECS, Lambda, EKS, RDS, S3) \\
+Observability: & OpenTelemetry, Prometheus, Grafana, ELK \\
+Also used: & Python (Vault Core Smart Contracts), SQL \\
+\end{cvskills}
+
+\cvsection{Work Experience}
+
+\jobGalaxyFinX[Golang Backend Engineer, Core Banking]
+\begin{itemize}
+    \item Built the core banking \textbf{account migration system in Golang}, running its processing on AWS \textbf{ECS and Lambda} against \textbf{RDS}, and cut migration time from \mbox{\textbf{2.5 hours to 27 minutes (5x faster)}}.
+    \item Rewrote the Vault Core \textbf{simulation testing framework entirely in Golang}, replacing the legacy Gauge-based framework and reducing execution time from \textbf{24 minutes to just over 50 seconds (20x faster)}.
+    \item Beyond the Go work, shipped Lending and Overdraft logic in Vault Core's Python contracts, connected the platform to external backend services, and deployed it on AWS EKS behind CI/CD.
+\end{itemize}
+
+\jobVietlink*[Backend \& Data Services]
+\begin{itemize}
+    \item Restructured batch services for \textbf{parallel execution} and more efficient data access patterns, raising processing throughput by \textbf{150\%}.
+    \item Ran ETL services on \textbf{Lambda} and \textbf{ECS} that process large-scale utility data for au Denki, with S3, Athena, and RDS as data stores.
+\end{itemize}
+
+\jobVNPAY
+\begin{itemize}
+    \item Operated \textbf{50+ production Kubernetes clusters} (OpenStack, Cluster API) with zero-downtime upgrades, and Kong Gateway access control for a \textbf{100+ service} microservices ecosystem.
+\end{itemize}
+
+\jobEsolLabs
+\begin{itemize}
+    \item Connected \textbf{5+ blockchain networks} (Ethereum, BSC, Polygon, Aptos, Sui) to event-driven backend services feeding off-chain databases and APIs, with consistent transaction handling.
+\end{itemize}
+
+\cvsection{Key Project}
+
+\projDattingQ
+\begin{itemize}
+    \item Built the backend API layer with \textbf{gRPC} and \textbf{gRPC-Gateway}, exposing REST/JSON endpoints generated from Protocol Buffer contracts.
+    \item Backed the services with \textbf{Kafka}, \textbf{MongoDB}, and \textbf{Redis}, at up to \textbf{1.5K requests/second} and \textbf{80--100~ms}.
+    \item Implemented multi-cluster failover and OpenTelemetry-based observability with Prometheus, Grafana, ELK, and ClickHouse, achieving \textbf{99.95\% uptime}.
+\end{itemize}
+
+\cveducation
+
+\end{document}
