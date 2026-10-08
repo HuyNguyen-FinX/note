@@ -1,0 +1,93 @@
+% pdf-name: Backend_Engineer
+% Positioning: backend specialist -- integrations, transaction logic, data
+% stores, messaging, API gateway & identity, performance, reliability.
+%   Primary    = Galaxy FinX   Secondary = Vietlink, VNPAY
+%   Supporting = EsolLabs
+% Differs from Software Engineer (breadth) by going deeper on how services
+% talk to each other and to data; from Golang by being language-neutral.
+\input{../templates/resume-template.tex}
+
+\begin{document}
+
+\cvheader{Backend Engineer}
+
+\cvsummary{%
+Backend engineer with nearly three years of experience building transaction-oriented services and integrations. Integrated a Thought Machine Vault Core banking platform with external services and implemented its lending and overdraft transaction logic; built a Golang account migration system on AWS that runs \textbf{5x faster}; and built a gRPC, Kafka, MongoDB, and Redis backend serving \textbf{1.5K requests/second} at \textbf{80--100~ms} with \textbf{99.95\% uptime}. Works across API contracts, data stores and search, messaging, batch processing, and the gateway and identity layers of a \textbf{100+ service} microservices ecosystem.}
+
+\begin{cvskills}
+Languages: & Golang, Python, SQL \\
+APIs: & gRPC, gRPC-Gateway (REST/JSON), Protocol Buffers, FastAPI \\
+Data Stores: & PostgreSQL, Amazon RDS, MongoDB, Redis, OpenSearch, Elasticsearch, ClickHouse \\
+Messaging \& Events: & Kafka, RabbitMQ, event-driven services \\
+Service Infrastructure: & Kong Gateway, Keycloak (RBAC), Docker, Kubernetes, AWS (ECS, Lambda, EKS, RDS) \\
+Observability: & OpenTelemetry, Prometheus, Grafana, ELK, CloudWatch, DataDog \\
+\end{cvskills}
+
+\cvsection{Work Experience}
+
+\jobGalaxyFinX[Backend Engineer, Core Banking]
+\cvgroup{Integration and Transaction Logic}
+\begin{itemize}
+    \item Integrated \textbf{Thought Machine Vault Core} with external backend services, wiring the core ledger into the bank's operational and transaction workflows. % @G5abc !A2
+    \item Implemented the Lending and Overdraft transaction logic as Python Smart Contracts on Vault Core, and maintained it in production. % @G1abgh
+    \item Implemented interest accrual and penalty and late-fee calculation for both products. % @G1cd
+    \item Implemented repayment and settlement processing for both products. % @G1ef
+\end{itemize}
+\cvgroup{Migration Backend}
+\begin{itemize}
+    \item Built the account migration backend in \textbf{Golang}, shortening a migration from \mbox{\textbf{2.5 hours to 27 minutes (5x)}}. % @G4ae
+    \item Ran the migration processing on AWS ECS and Lambda, persisting to \textbf{RDS}. % @G4bcd
+\end{itemize}
+\cvgroup{Testing and Deployment}
+\begin{itemize}
+    \item Rewrote the simulation testing framework in Golang, replacing the Gauge-based framework. % @G2ab
+    \item Gave the transaction logic fast test feedback: simulation tests now finish in \textbf{just over 50 seconds instead of 24 minutes}. % @G2c
+    \item Deployed a new Vault Core version on AWS (EKS, RDS, ECR, ELB) with a CI/CD pipeline for build, test, and deployment. % @G3abcdef
+\end{itemize}
+
+\jobVietlink*[Backend \& Data Services]
+\begin{itemize}
+    \item Migrated the search and analytics backend from \textbf{Elasticsearch to OpenSearch}. % @V3a
+    \item Re-architected data ingestion and indexing during the migration, improving stability, consistency, and query performance. % @V3bcdef
+    \item Raised batch throughput by \textbf{150\%} by redesigning pipelines, reworking data access patterns, and running processing steps in parallel. % @V2abcde
+    \item Built backend data services on AWS Lambda, ECS, RDS, S3, and Athena that transform large-scale utility data for analytics and operational consumers. % @V1abcdefghi
+    \item Managed the services' infrastructure with Terraform and AWS SAM. % @V4abc
+    \item Monitored them with CloudWatch and DataDog for health, failures, and anomalies. % @V4defgh
+\end{itemize}
+
+\jobVNPAY*[API Gateway \& Identity]
+\begin{itemize}
+    \item Operated \textbf{Kong Gateway} for a microservices ecosystem of \textbf{100+ services}. % @P3ab
+    \item Enforced service-level and network-level access control at the gateway. % @P3cd
+    \item Built multi-tenant \textbf{authentication} on \textbf{Keycloak} for \textbf{20+ customer organizations}. % @P2acf
+    \item Implemented role-based \textbf{authorization} that isolates each tenant's access. % @P2bde
+    \item Operated the OpenStack and Cluster API private cloud behind the platform: \textbf{50+ production Kubernetes clusters} with automated provisioning, scaling, and zero-downtime upgrades. % @P1abcdefg
+    \item Automated about \textbf{80\%} of data center provisioning and infrastructure configuration. % @P4abc
+\end{itemize}
+
+\jobEsolLabs*[Event-Driven Backend]
+\begin{itemize}
+    \item Built \textbf{event-driven backend services} that capture, process, and synchronize on-chain events into off-chain databases and APIs. % @E2abcdef
+    \item Integrated them with \textbf{5+ blockchain networks} (Ethereum, BSC, Polygon, Aptos, Sui). % @E3abcdef
+    \item Kept transaction handling consistent and data intact across chains. % @E3gh
+    \item Developed and reviewed \textbf{15+ smart contracts} for DeFi and NFT use cases in Solidity and Move. % @E1abcdef
+\end{itemize}
+
+\cvsection{Selected Projects}
+
+\projDattingQ
+\begin{itemize}
+    \item Built the API layer with \textbf{gRPC} services exposed as REST/JSON through \textbf{gRPC-Gateway}. % @D1a !A8
+    \item Backed the services with \textbf{Kafka}, \textbf{MongoDB}, and \textbf{Redis}, sustaining up to \textbf{1.5K requests/second} at \textbf{80--100~ms} latency. % @D1bcdef
+    \item Implemented multi-cluster failover with OpenTelemetry, Prometheus, Grafana, ELK, and ClickHouse observability for \textbf{99.95\% uptime}. % @D2abcdefg
+\end{itemize}
+
+\projMeetQ
+\begin{itemize}
+    \item Built a real-time meeting backend on LiveKit integrating OpenAI models for transcription, voice translation, and summaries. % @M1abcde
+    \item Designed the real-time translation pipeline and optimized its conversational context handling for accuracy and coherence. % @M2abc
+\end{itemize}
+
+\cveducation
+
+\end{document}

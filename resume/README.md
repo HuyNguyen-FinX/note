@@ -1,6 +1,8 @@
 # Resume Variants: Nguyen Gia Huy
 
-10 CV được định vị theo 10 hướng nghề nghiệp khác nhau. Mỗi bản có functional job title, Work Experience và Technical Skills riêng, và **giữ đủ 20/20 kinh nghiệm gốc**. Tất cả viết bằng LaTeX, dùng chung một template, xuất ra PDF A4 **2 trang**, ATS-friendly.
+10 CV được định vị theo 10 hướng nghề nghiệp khác nhau. Mỗi bản có functional job title, summary ngắn (40–51 từ), Technical Skills gọn (16–20 mục) và Work Experience riêng. Tất cả viết bằng LaTeX, dùng chung một template, xuất ra PDF A4 2 trang, ATS-friendly.
+
+Bản trước (v3) được lưu trong `archive/v3-2026-10-08/` để so sánh.
 
 ## Cấu trúc
 
@@ -12,8 +14,11 @@ resume/
 │   ├── role-matching.md           # mức độ phù hợp với từng vị trí, kỹ năng còn thiếu
 │   ├── experience-inventory.md    # mọi sự kiện đã xác nhận trong CV gốc, có ID (G1a, V2e…)
 │   ├── experience-coverage-report.md # (tự sinh) CV nào giữ, mở rộng hay bỏ sự kiện nào
-│   ├── cv-differentiation-report.md  # lịch sử v1→v3, ma trận khác biệt, phân bổ, layout, đánh giá
+│   ├── resume-content-review.md   # audit v3, thay đổi ở v4, đánh giá theo 8 tiêu chí
+│   ├── skills-audit.md            # skill bị loại ở từng bản và lý do
+│   ├── cv-differentiation-report.md  # lịch sử v1→v4, ma trận khác biệt, phân bổ, layout
 │   └── review-needed.md           # diễn giải cần xác nhận (Phần A) và đề xuất chưa đưa vào (Phần B)
+├── archive/v3-2026-10-08/        # bản v3 (latex, pdf, template) để so sánh
 ├── templates/resume-template.tex  # layout, font, thông tin cá nhân, timeline, học vấn
 ├── latex/                         # 1 file .tex cho mỗi vị trí
 ├── pdf/                           # Nguyen_Gia_Huy_<Role>.pdf
@@ -59,7 +64,7 @@ PDF_PREFIX="Nguyen_Gia_Huy" ./scripts/build-all.sh   # đổi tiền tố tên f
 python3 scripts/check-differentiation.py latex
 ```
 
-Mục tiêu: mọi cặp CV ≥ 60%. Hiện tại thấp nhất 62%, trung bình 81%, trong khi mọi CV đều giữ đủ kinh nghiệm.
+Hiện tại trung bình 73%, thấp nhất 54%. Ở v4, tiếng Anh tự nhiên được ưu tiên hơn chỉ số này; xem `analysis/resume-content-review.md`.
 
 Kiểm tra mức bao phủ kinh nghiệm (và sinh lại báo cáo coverage):
 
@@ -72,7 +77,7 @@ python3 scripts/coverage-report.py
 ### Thông tin dùng chung: `templates/resume-template.tex`
 - Thông tin cá nhân: `\cvname`, `\cvemail`, `\cvphone`, `\cvlinkedin`.
 - Công ty, thời gian, chức danh chính thức: `\jobGalaxyFinX`, `\jobVietlink`, `\jobVNPAY`, `\jobEsolLabs`.
-- Dự án: `\projDattingQ`, `\projMeetQ`. Học vấn: `\cveducation`. Cỡ chữ: `\cvfontsize` (mặc định 10pt).
+- Dự án: `\projDattingQ`, `\projMeetQ`. Học vấn: `\cveducation`. Cỡ chữ: `\cvfontsize` (mặc định 10.5pt).
 
 ### Functional job title
 Có ba cách gọi header công ty. Chức danh chính thức luôn hiện kèm:
@@ -90,7 +95,7 @@ Có ba cách gọi header công ty. Chức danh chính thức luôn hiện kèm:
 ### Nội dung từng CV: `latex/<role>.tex`
 Mỗi file gồm: `\cvheader{...}`, `\cvsummary{...}`, `cvskills`, các header công ty kèm `itemize`, các project và `\cveducation`. Số bullet và thứ tự section có thể khác nhau giữa các bản.
 
-Kinh nghiệm primary được chia nhóm bằng `\cvgroup{Tiêu đề nhóm}`, đặt ngay trước một `itemize`.
+`\cvgroup{Tiêu đề nhóm}` vẫn có sẵn để chia nhóm bullet, nhưng v4 không dùng vì 5–8 bullet mỗi công ty đọc liền mạch dễ hơn.
 
 **Tag sự kiện:** cuối mỗi bullet có comment, ví dụ `% @V1bc !A14`:
 - `@V1bc` trỏ tới sự kiện trong `analysis/experience-inventory.md` (V1, aspects b và c).
@@ -105,12 +110,12 @@ Khi thêm hoặc sửa bullet, hãy giữ tag để `coverage-report.py` tiếp 
 
 ### Phân trang
 Template tự xử lý:
-- Section header và header công ty không bao giờ nằm cuối trang (`\needspace`).
+- Section header và header công ty không bao giờ nằm cuối trang (`\Needspace`, bản tính chính xác; `\needspace` báo sai khi dùng cùng `\raggedbottom`).
 - Một bullet không bao giờ bị chia đôi qua 2 trang.
 - Dòng cuối của bullet không bao giờ chỉ có 1 chữ.
 - Footer từ trang 2 có tên, vị trí và số trang.
 
-Nếu một nhóm bị chia trang khó đọc, đặt `\needspace{5\baselineskip}` ngay trước `\item` cần đi cùng bullet kế tiếp (xem ví dụ trong `cloud-engineer.tex`).
+Nếu một nhóm bullet bị chia trang khó đọc, đặt `\Needspace{5\baselineskip}` ngay trước `\item` cần đi cùng bullet kế tiếp.
 
 Ưu tiên chỉnh layout, **không** cắt nội dung để giữ số trang.
 
@@ -119,3 +124,9 @@ Nếu một nhóm bị chia trang khó đọc, đặt `\needspace{5\baselineskip
 - Không biến hệ thống viết bằng Golang/Python thành kinh nghiệm Java.
 - Java/Spring Boot, FastAPI, RabbitMQ, Jenkins, ArgoCD, Consul, HashiCorp Vault hiện chỉ là skill được liệt kê.
 - "nearly three years" đúng tại 10/2026. Hãy cập nhật khi thời gian trôi qua.
+
+## Quy tắc viết (từ v4)
+- **Summary:** 40–65 từ, tối đa 3 câu, giọng tự nhiên. Không dùng marketing phrase ("proven track record", "passionate", "results-driven"…), không cố nhắc mọi công ty hay metric.
+- **Skills:** chỉ technology có giá trị với vị trí, 4–6 nhóm, khoảng 12–20 mục. Nghiệp vụ (lending, interest accrual…) và trách nhiệm (ETL design, multi-tenancy…) được viết trong Experience.
+- **Bullet:** mỗi bullet là một contribution có ý nghĩa (làm gì, bằng gì, kết quả gì). Gộp các bullet cùng một deliverable; chỉ tách khi là thành tích độc lập.
+- **Động từ đơn giản:** Built, Developed, Implemented, Migrated, Improved, Automated, Integrated, Operated.

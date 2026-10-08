@@ -1,4 +1,8 @@
-# CV Differentiation Report (v3: CV 2 trang, đầy đủ kinh nghiệm)
+# CV Differentiation Report
+
+> **Cập nhật v4 (biên tập cho tự nhiên):** khác biệt trung bình **73%**, thấp nhất **54%** (DevOps vs Platform). Mỗi CV có 12–19 bullet Work Experience. Coverage 18–20/20 sự kiện, 11–12/12 metric. Mức khác biệt giảm so với v3 vì tiếng Anh tự nhiên được ưu tiên, nên cùng một sự kiện chỉ có vài cách diễn đạt; xem `resume-content-review.md`. Các phần bên dưới mô tả v3 và được giữ lại làm lịch sử.
+
+## v3: CV 2 trang, đầy đủ kinh nghiệm
 
 Ngày: 2026-10-08. Phạm vi: 10 CV trong `latex/` → `pdf/Nguyen_Gia_Huy_*.pdf`.
 

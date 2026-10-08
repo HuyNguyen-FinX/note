@@ -1,0 +1,93 @@
+% pdf-name: FinTech_Backend_Engineer
+% Positioning: core banking / fintech backend.
+%   Primary    = Galaxy FinX (products, interest & repayment lifecycle,
+%                integration, migration, verification, delivery)
+%   Secondary  = VNPAY (security of a fintech cloud), EsolLabs (DeFi, transaction integrity)
+%   Supporting = Vietlink
+\input{../templates/resume-template.tex}
+
+\begin{document}
+
+\cvheader{FinTech Backend Engineer -- Core Banking}
+
+\cvsummary{%
+Core banking engineer at Vikki Digital Bank, building the \textbf{Lending} and \textbf{Overdraft} products on \textbf{Thought Machine Vault Core} (interest accrual, penalty and late fees, repayment, and settlement) together with the integrations, account migration system, test infrastructure, and AWS deployment around them. Nearly three years of experience, including fintech cloud security at VNPAY (multi-tenant authentication for \textbf{20+} fintech and enterprise customer organizations, gateway access control for \textbf{100+} services) and transaction integrity across \textbf{5+} blockchain networks.}
+
+\begin{cvskills}
+Core Banking: & Thought Machine Vault Core, Python Smart Contracts, product simulation testing \\
+Banking Products: & Lending, overdraft; interest accrual, penalty and late fees, repayment, settlement \\
+Languages: & Python, Golang, SQL \\
+Integration \& Data: & gRPC, REST/JSON, Kafka, PostgreSQL, Amazon RDS, Redis \\
+Security: & Keycloak (multi-tenant RBAC), Kong Gateway, HashiCorp Vault \\
+Cloud: & AWS (EKS, ECS, Lambda, RDS, ECR, ELB), Kubernetes \\
+DeFi: & Solidity, Move, Ethereum, BSC, Polygon, Aptos, Sui \\
+\end{cvskills}
+
+\cvsection{Work Experience}
+
+\jobGalaxyFinX
+\cvgroup{Lending and Overdraft Products}
+\begin{itemize}
+    \item Developed and maintained the bank's \textbf{Lending} and \textbf{Overdraft} products as Python Smart Contracts on \textbf{Thought Machine Vault Core}. % @G1abgh
+    \item Implemented \textbf{interest accrual} for both products, scheduled through Vault Core events. % @G1c !A1
+    \item Implemented \textbf{penalty and late-fee calculations} for overdue obligations. % @G1d
+    \item Implemented \textbf{repayment} processing, applying customer payments against what is owed. % @G1e !A4
+    \item Implemented \textbf{settlement} logic, the path that moves money and closes out customer obligations. % @G1f !A4
+\end{itemize}
+\cvgroup{Banking Integration and Account Migration}
+\begin{itemize}
+    \item Integrated Vault Core with \textbf{external backend services} to support core banking operations and transaction workflows across the bank's systems. % @G5abc
+    \item Built the \textbf{account migration system} in Golang on AWS ECS, Lambda, and RDS. % @G4abcd
+    \item Cut migration time from \mbox{\textbf{2.5 hours to 27 minutes (5x faster)}}, shrinking the time window each migration needs. % @G4e
+\end{itemize}
+\cvgroup{Verification and Delivery}
+\begin{itemize}
+    \item Rebuilt the product \textbf{simulation testing framework} in Golang, replacing the Gauge-based framework used to verify contract behaviour. % @G2ab !A3
+    \item Reduced simulation runs from \textbf{24 minutes to just over 50 seconds (20x faster)}. % @G2c
+    \item Deployed a new Vault Core version on AWS, provisioning and integrating \textbf{EKS, RDS, ECR, and ELB}. % @G3abcde
+    \item Built the \textbf{CI/CD pipeline} for automated build, test, and deployment of the core banking platform. % @G3f
+\end{itemize}
+
+\jobVietlink
+\begin{itemize}
+    \item Designed, built, and operated ETL pipelines on AWS (Lambda, ECS, RDS, S3, Athena) for large-scale utility data used in analytics and operations. % @V1abcdefghi
+    \item Increased batch throughput by \textbf{150\%} through pipeline redesign, parallel execution, and more efficient data access. % @V2abcde
+    \item Migrated search and analytics from \textbf{Elasticsearch to OpenSearch}, redesigning ingestion and indexing for stability, consistency, and query performance. % @V3abcdef
+    \item Built the platform's infrastructure with Terraform and AWS SAM and its CloudWatch and DataDog monitoring for health, failures, and anomalies. % @V4abcdefgh
+\end{itemize}
+
+\jobVNPAY*[Fintech Cloud Platform]
+\begin{itemize}
+    \item Implemented multi-tenant \textbf{authentication} with \textbf{Keycloak} for \textbf{20+ fintech and enterprise customer organizations} on VNPAY Cloud. % @P2acf !A10
+    \item Implemented role-based \textbf{authorization} that enforces tenant isolation, so each customer organization's access stays separate. % @P2bde
+    \item Enforced service-level and network-level access control for \textbf{100+ microservices} through \textbf{Kong Gateway}. % @P3abcd
+    \item Operated \textbf{50+ production Kubernetes clusters} on OpenStack for fintech and enterprise customers. % @P1abg !A10
+    \item Automated provisioning, scaling, and zero-downtime upgrades of those clusters with Cluster API, keeping customer workloads available during upgrades. % @P1cdef
+    \item Automated about \textbf{80\%} of data center provisioning and infrastructure configuration. % @P4abc
+\end{itemize}
+
+\jobEsolLabs*[DeFi \& Transaction Systems]
+\begin{itemize}
+    \item Developed and reviewed \textbf{15+ smart contracts} for DeFi and NFT use cases in Solidity and Move. % @E1abcdef
+    \item Integrated backend services with \textbf{5+ blockchain networks} (Ethereum, BSC, Polygon, Aptos, Sui). % @E3abcdef
+    \item Ensured \textbf{consistent transaction handling} across chains. % @E3g
+    \item Preserved \textbf{data integrity} between on-chain events and off-chain records. % @E3h
+    \item Built event-driven services that capture and synchronize on-chain events into off-chain databases and APIs. % @E2abcdef
+\end{itemize}
+
+\cvsection{Selected Projects}
+
+\projDattingQ
+\begin{itemize}
+    \item Built a gRPC-Gateway, Kafka, MongoDB, and Redis backend serving up to \textbf{1.5K requests/second} at \textbf{80--100~ms}. % @D1abcdef
+    \item Implemented multi-cluster failover and observability (OpenTelemetry, Prometheus, Grafana, ELK, ClickHouse) for \textbf{99.95\% uptime}. % @D2abcdefg
+\end{itemize}
+
+\projMeetQ
+\begin{itemize}
+    \item Built a real-time meeting platform on LiveKit with OpenAI models for live transcription, voice translation, and summarization, and designed its real-time translation pipeline. % @M1abcde @M2a
+\end{itemize}
+
+\cveducation
+
+\end{document}

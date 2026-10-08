@@ -10,16 +10,16 @@ Sinh tự động bởi `scripts/coverage-report.py` từ các tag trong `latex/
 
 | CV | Sự kiện | Aspects | Metric | Galaxy | Vietlink | VNPAY | EsolLabs | Projects |
 |---|---|---|---|---|---|---|---|---|
-| backend-engineer | 20/20 | 114/114 (100%) | 12/12 | 9 | 6 | 6 | 4 | 5 |
-| cloud-engineer | 20/20 | 112/114 (98%) | 12/12 | 7 | 6 | 10 | 3 | 3 |
-| data-engineer | 20/20 | 114/114 (100%) | 12/12 | 7 | 13 | 5 | 4 | 5 |
-| devops-engineer | 20/20 | 112/114 (98%) | 12/12 | 7 | 7 | 11 | 3 | 4 |
-| fintech-backend | 20/20 | 112/114 (98%) | 12/12 | 12 | 4 | 6 | 5 | 3 |
-| golang-backend | 20/20 | 114/114 (100%) | 12/12 | 8 | 5 | 4 | 4 | 6 |
-| java-backend | 20/20 | 113/114 (99%) | 12/12 | 9 | 5 | 6 | 3 | 4 |
-| platform-engineer | 20/20 | 112/114 (98%) | 12/12 | 7 | 6 | 10 | 3 | 3 |
-| python-backend | 20/20 | 114/114 (100%) | 12/12 | 10 | 5 | 5 | 3 | 5 |
-| software-engineer | 20/20 | 114/114 (100%) | 12/12 | 9 | 6 | 6 | 3 | 5 |
+| backend-engineer | 20/20 | 113/114 (99%) | 12/12 | 6 | 4 | 4 | 3 | 3 |
+| cloud-engineer | 18/20 | 96/114 (84%) | 11/12 | 5 | 5 | 6 | 2 | 1 |
+| data-engineer | 20/20 | 114/114 (100%) | 12/12 | 5 | 7 | 4 | 3 | 4 |
+| devops-engineer | 18/20 | 106/114 (92%) | 12/12 | 5 | 5 | 6 | 2 | 2 |
+| fintech-backend | 18/20 | 103/114 (90%) | 12/12 | 8 | 4 | 4 | 3 | 1 |
+| golang-backend | 20/20 | 107/114 (93%) | 12/12 | 5 | 4 | 4 | 2 | 4 |
+| java-backend | 20/20 | 107/114 (93%) | 12/12 | 6 | 4 | 4 | 2 | 3 |
+| platform-engineer | 18/20 | 101/114 (88%) | 12/12 | 5 | 5 | 5 | 2 | 2 |
+| python-backend | 20/20 | 104/114 (91%) | 12/12 | 7 | 4 | 4 | 2 | 3 |
+| software-engineer | 20/20 | 107/114 (93%) | 12/12 | 4 | 4 | 3 | 1 | 3 |
 
 ## Nội dung không đưa vào CV nào
 - **Freelance Blockchain Developer (09/2023 – 03/2024):** bạn đang comment trong `main.tex`, nên tôi tôn trọng quyết định ẩn mục này. Xem `review-needed.md`, mục C.
@@ -37,45 +37,47 @@ Sinh tự động bởi `scripts/coverage-report.py` từ các tag trong `latex/
 | | |
 |---|---|
 | Primary / Secondary / Supporting | Galaxy FinX / Vietlink + VNPAY / EsolLabs |
-| Bullet theo công ty | Galaxy 9 · Vietlink 6 · VNPAY 6 · EsolLabs 4 · Projects 5 |
-| Sự kiện giữ lại | 20/20 sự kiện, 114/114 aspects (100%) |
+| Bullet theo công ty | Galaxy 6 · Vietlink 4 · VNPAY 4 · EsolLabs 3 · Projects 3 |
+| Sự kiện giữ lại | 20/20 sự kiện, 113/114 aspects (99%) |
 | Metric giữ lại | 12/12 |
-| Sự kiện được mở rộng thành nhiều bullet | D1×2, E3×2, G1×3, G2×2, G4×2, P2×2, P3×2, V3×2, V4×2 |
-| Diễn giải cần xác nhận (review-needed Phần A) | A2×1, A8×1 |
+| Sự kiện được mở rộng thành nhiều bullet | G1×2 |
+| Diễn giải cần xác nhận (review-needed Phần A) | A2×1, A3×1, A8×1, A18×1, A20×1 |
 
-**Mở rộng:** Galaxy chia Integration & Transaction Logic / Migration Backend / Testing & Deployment. VNPAY tách gateway, access control, authentication, authorization. Vietlink tách V3 thành migration + ingestion/indexing, V4 thành IaC + monitoring.
+**Trình bày:** Galaxy mở đầu bằng integration; tách interest/fees và repayment/settlement.
 
-**Không đưa vào và lý do:** Không bỏ sự kiện nào.
+**Không đưa vào và lý do:** MeetQ gộp còn 1 bullet.
+
+Aspects chưa xuất hiện: M2 MeetQ translation pipeline: accuracy & coherence
 
 ### cloud-engineer
 
 | | |
 |---|---|
 | Primary / Secondary / Supporting | VNPAY / Galaxy FinX + Vietlink / EsolLabs |
-| Bullet theo công ty | Galaxy 7 · Vietlink 6 · VNPAY 10 · EsolLabs 3 · Projects 3 |
-| Sự kiện giữ lại | 20/20 sự kiện, 112/114 aspects (98%) |
-| Metric giữ lại | 12/12 |
-| Sự kiện được mở rộng thành nhiều bullet | G3×3, P1×5, P2×2, P3×2, V1×2, V4×2 |
-| Diễn giải cần xác nhận (review-needed Phần A) | A5×3, A6×1, A7×1, A9×1, A10×1, A18×1, A19×1, A23×1 |
+| Bullet theo công ty | Galaxy 5 · Vietlink 5 · VNPAY 6 · EsolLabs 2 · Projects 1 |
+| Sự kiện giữ lại | 18/20 sự kiện, 96/114 aspects (84%) |
+| Metric giữ lại | 11/12 |
+| Sự kiện được mở rộng thành nhiều bullet | G3×2, P1×3, V4×2 |
+| Diễn giải cần xác nhận (review-needed Phần A) | A5×2, A6×1, A7×1, A9×1, A10×1, A18×1 |
 
-**Mở rộng:** VNPAY kể theo kiến trúc private cloud: P1 tách 5 bullet, P2 tách tenant isolation + RBAC, P3 tách gateway + chính sách truy cập. Galaxy G3 kể theo vai trò từng dịch vụ AWS. Vietlink V1 tách serverless/container và storage/query.
+**Trình bày:** VNPAY 6 bullet theo góc kiến trúc private cloud và tenant isolation. Galaxy kể vai trò từng dịch vụ AWS.
 
-**Không đưa vào và lý do:** MeetQ chỉ giữ 1 bullet (M2b, M2c).
+**Không đưa vào và lý do:** MeetQ bị bỏ; DattingQ chỉ giữ 1 bullet về failover và monitoring.
 
-Aspects chưa xuất hiện: M2 MeetQ translation pipeline: context handling, accuracy & coherence
+Aspects chưa xuất hiện: E3 Multi-chain integration: Ethereum, BSC, Polygon, Aptos, Sui; D1 DattingQ backend: gRPC-Gateway, Kafka, MongoDB, Redis, 80-100 ms; M1 MeetQ platform: LiveKit, OpenAI, transcription, voice translation, summarization; M2 MeetQ translation pipeline: pipeline design, context handling, accuracy & coherence
 
 ### data-engineer
 
 | | |
 |---|---|
 | Primary / Secondary / Supporting | Vietlink / Galaxy FinX / VNPAY, EsolLabs |
-| Bullet theo công ty | Galaxy 7 · Vietlink 13 · VNPAY 5 · EsolLabs 4 · Projects 5 |
+| Bullet theo công ty | Galaxy 5 · Vietlink 7 · VNPAY 4 · EsolLabs 3 · Projects 4 |
 | Sự kiện giữ lại | 20/20 sự kiện, 114/114 aspects (100%) |
 | Metric giữ lại | 12/12 |
-| Sự kiện được mở rộng thành nhiều bullet | D1×2, E3×2, G1×2, G4×2, P1×2, V1×4, V2×3, V3×3, V4×3 |
-| Diễn giải cần xác nhận (review-needed Phần A) | A2×1, A4×1, A6×1, A10×1, A14×1, A15×1, A16×1, A17×1, A18×1, A19×1, A20×1, A21×1 |
+| Sự kiện được mở rộng thành nhiều bullet | V1×3, V4×2 |
+| Diễn giải cần xác nhận (review-needed Phần A) | A6×1, A15×1, A20×1 |
 
-**Mở rộng:** Vietlink V1–V4 tách thành 13 bullet trong 4 nhóm (Pipeline Architecture, Batch Optimization, Search & Analytics, Reliability & Operations). Galaxy G4 tách thành 2 bullet (hệ thống + mô hình chạy ECS/Lambda/RDS); G1 tách thành tính toán và repayment/settlement. EsolLabs kể theo góc ingestion.
+**Trình bày:** Vietlink 7 bullet (kiến trúc ETL, vai trò từng dịch vụ AWS, transformation, tối ưu 150%, OpenSearch, IaC, monitoring). Galaxy kể theo góc data migration.
 
 **Không đưa vào và lý do:** Không bỏ sự kiện nào.
 
@@ -84,110 +86,116 @@ Aspects chưa xuất hiện: M2 MeetQ translation pipeline: context handling, ac
 | | |
 |---|---|
 | Primary / Secondary / Supporting | VNPAY / Galaxy FinX / Vietlink, EsolLabs |
-| Bullet theo công ty | Galaxy 7 · Vietlink 7 · VNPAY 11 · EsolLabs 3 · Projects 4 |
-| Sự kiện giữ lại | 20/20 sự kiện, 112/114 aspects (98%) |
+| Bullet theo công ty | Galaxy 5 · Vietlink 5 · VNPAY 6 · EsolLabs 2 · Projects 2 |
+| Sự kiện giữ lại | 18/20 sự kiện, 106/114 aspects (92%) |
 | Metric giữ lại | 12/12 |
-| Sự kiện được mở rộng thành nhiều bullet | D2×2, G3×3, P1×5, P2×2, P3×2, P4×2, V1×2, V4×4 |
-| Diễn giải cần xác nhận (review-needed Phần A) | A5×3, A7×1, A10×1, A11×1, A18×1, A22×1 |
+| Sự kiện được mở rộng thành nhiều bullet | G3×2, P1×3, V1×2, V4×2 |
+| Diễn giải cần xác nhận (review-needed Phần A) | A5×2, A10×1, A18×1 |
 
-**Mở rộng:** VNPAY P1 tách thành 5 bullet về lifecycle (OpenStack, vận hành 50+ cluster, provisioning, scaling, zero-downtime upgrade); P4 thành 2; P2 thành authentication + RBAC. Galaxy G3 tách thành deploy, hạ tầng EKS/RDS/ECR/ELB và CI/CD. Vietlink V4 tách thành Terraform, SAM, CloudWatch, DataDog.
+**Trình bày:** VNPAY 6 bullet (OpenStack, lifecycle với Cluster API, zero-downtime upgrade, automation 80%, Kong, Keycloak). Galaxy tách deploy và CI/CD.
 
-**Không đưa vào và lý do:** MeetQ chỉ giữ 1 bullet (M2b, M2c bỏ vì ít liên quan DevOps).
+**Không đưa vào và lý do:** MeetQ bị bỏ vì không liên quan DevOps.
 
-Aspects chưa xuất hiện: M2 MeetQ translation pipeline: context handling, accuracy & coherence
+Aspects chưa xuất hiện: M1 MeetQ platform: LiveKit, OpenAI, transcription, voice translation, summarization; M2 MeetQ translation pipeline: pipeline design, context handling, accuracy & coherence
 
 ### fintech-backend
 
 | | |
 |---|---|
 | Primary / Secondary / Supporting | Galaxy FinX / VNPAY + EsolLabs / Vietlink |
-| Bullet theo công ty | Galaxy 12 · Vietlink 4 · VNPAY 6 · EsolLabs 5 · Projects 3 |
-| Sự kiện giữ lại | 20/20 sự kiện, 112/114 aspects (98%) |
+| Bullet theo công ty | Galaxy 8 · Vietlink 4 · VNPAY 4 · EsolLabs 3 · Projects 1 |
+| Sự kiện giữ lại | 18/20 sự kiện, 103/114 aspects (90%) |
 | Metric giữ lại | 12/12 |
-| Sự kiện được mở rộng thành nhiều bullet | E3×3, G1×5, G2×2, G3×2, G4×2, P1×2, P2×2 |
-| Diễn giải cần xác nhận (review-needed Phần A) | A1×1, A3×1, A4×2, A10×2 |
+| Sự kiện được mở rộng thành nhiều bullet | G1×4 |
+| Diễn giải cần xác nhận (review-needed Phần A) | A1×1, A3×1, A4×1, A10×1 |
 
-**Mở rộng:** G1 tách 5 bullet (sản phẩm, interest accrual, penalty/late fees, repayment, settlement); G4 tách hệ thống + tác động; G2 tách framework + tốc độ; G3 tách deploy + CI/CD. EsolLabs E3 tách consistent transactions và data integrity.
+**Trình bày:** Galaxy 8 bullet theo vòng đời sản phẩm (sản phẩm, interest accrual, penalty/late fee, repayment/settlement, integration, migration, testing, deploy).
 
-**Không đưa vào và lý do:** MeetQ chỉ giữ 1 bullet (M2b, M2c).
+**Không đưa vào và lý do:** MeetQ bị bỏ vì không liên quan FinTech.
 
-Aspects chưa xuất hiện: M2 MeetQ translation pipeline: context handling, accuracy & coherence
+Aspects chưa xuất hiện: V3 Elasticsearch -> OpenSearch: stability, consistency, query performance; M1 MeetQ platform: LiveKit, OpenAI, transcription, voice translation, summarization; M2 MeetQ translation pipeline: pipeline design, context handling, accuracy & coherence
 
 ### golang-backend
 
 | | |
 |---|---|
 | Primary / Secondary / Supporting | Galaxy FinX / Vietlink / VNPAY, EsolLabs |
-| Bullet theo công ty | Galaxy 8 · Vietlink 5 · VNPAY 4 · EsolLabs 4 · Projects 6 |
-| Sự kiện giữ lại | 20/20 sự kiện, 114/114 aspects (100%) |
+| Bullet theo công ty | Galaxy 5 · Vietlink 4 · VNPAY 4 · EsolLabs 2 · Projects 4 |
+| Sự kiện giữ lại | 20/20 sự kiện, 107/114 aspects (93%) |
 | Metric giữ lại | 12/12 |
-| Sự kiện được mở rộng thành nhiều bullet | D1×3, E3×2, G2×2, G3×2, G4×2, V3×2 |
-| Diễn giải cần xác nhận (review-needed Phần A) | A2×1, A3×1, A6×1, A7×1, A8×1, A16×1, A18×1, A19×1 |
+| Sự kiện được mở rộng thành nhiều bullet | D1×2 |
+| Diễn giải cần xác nhận (review-needed Phần A) | A3×1, A6×1, A8×1, A18×1 |
 
-**Mở rộng:** Galaxy chia 3 nhóm: Account Migration (Go), Testing Infrastructure (Go), Integration & Delivery. DattingQ thành Key Project 4 bullet (API layer, messaging/data, hiệu năng, độ tin cậy).
+**Trình bày:** Galaxy có 2 hệ thống Go đứng đầu; DattingQ là Key Project với 3 bullet (API layer, messaging/storage, reliability).
 
-**Không đưa vào và lý do:** Không bỏ sự kiện nào. Chi tiết concurrency/worker của Go **không** được nhận vì chưa xác minh (review-needed B1/B2).
+**Không đưa vào và lý do:** MeetQ chỉ giữ 1 bullet (M2b, M2c bỏ). Chi tiết concurrency của Go chưa được nhận (review-needed B1/B2).
+
+Aspects chưa xuất hiện: E3 Multi-chain integration: Ethereum, BSC, Polygon, Aptos, Sui; M2 MeetQ translation pipeline: context handling, accuracy & coherence
 
 ### java-backend
 
 | | |
 |---|---|
-| Primary / Secondary / Supporting | Galaxy FinX / VNPAY / Vietlink, EsolLabs |
-| Bullet theo công ty | Galaxy 9 · Vietlink 5 · VNPAY 6 · EsolLabs 3 · Projects 4 |
-| Sự kiện giữ lại | 20/20 sự kiện, 113/114 aspects (99%) |
+| Primary / Secondary / Supporting | Galaxy FinX / VNPAY + Vietlink / EsolLabs |
+| Bullet theo công ty | Galaxy 6 · Vietlink 4 · VNPAY 4 · EsolLabs 2 · Projects 3 |
+| Sự kiện giữ lại | 20/20 sự kiện, 107/114 aspects (93%) |
 | Metric giữ lại | 12/12 |
-| Sự kiện được mở rộng thành nhiều bullet | D1×2, G1×3, G2×2, G3×2, P2×2, P3×2, V3×2 |
-| Diễn giải cần xác nhận (review-needed Phần A) | A3×1, A4×2, A6×1, A7×1, A8×1, A9×2 |
+| Sự kiện được mở rộng thành nhiều bullet | G1×2 |
+| Diễn giải cần xác nhận (review-needed Phần A) | A4×1, A6×1, A8×1, A9×1 |
 
-**Mở rộng:** Galaxy chia Transaction Processing / Integration & Data / Testing & Delivery. VNPAY 6 bullet theo góc microservices và identity (gateway, access control, authentication, authorization model).
+**Trình bày:** Galaxy tách transaction logic và repayment/settlement; VNPAY kể theo góc API gateway và identity.
 
-**Không đưa vào và lý do:** MeetQ gộp còn 1 bullet. Không có hệ thống Golang/Python nào được trình bày thành Java.
+**Không đưa vào và lý do:** MeetQ gộp còn 1 bullet. Không hệ thống Golang/Python nào được trình bày thành Java.
 
-Aspects chưa xuất hiện: M2 MeetQ translation pipeline: accuracy & coherence
+Aspects chưa xuất hiện: E3 Multi-chain integration: Ethereum, BSC, Polygon, Aptos, Sui; M2 MeetQ translation pipeline: context handling, accuracy & coherence
 
 ### platform-engineer
 
 | | |
 |---|---|
 | Primary / Secondary / Supporting | VNPAY / Galaxy FinX / Vietlink, EsolLabs |
-| Bullet theo công ty | Galaxy 7 · Vietlink 6 · VNPAY 10 · EsolLabs 3 · Projects 3 |
-| Sự kiện giữ lại | 20/20 sự kiện, 112/114 aspects (98%) |
+| Bullet theo công ty | Galaxy 5 · Vietlink 5 · VNPAY 5 · EsolLabs 2 · Projects 2 |
+| Sự kiện giữ lại | 18/20 sự kiện, 101/114 aspects (88%) |
 | Metric giữ lại | 12/12 |
-| Sự kiện được mở rộng thành nhiều bullet | G2×2, G3×2, P1×4, P2×2, P3×2, P4×2, V4×3 |
-| Diễn giải cần xác nhận (review-needed Phần A) | A5×1, A9×2, A10×1, A11×1 |
+| Sự kiện được mở rộng thành nhiều bullet | P1×2, V4×2 |
+| Diễn giải cần xác nhận (review-needed Phần A) | A9×1, A10×1, A11×1 |
 
-**Mở rộng:** VNPAY kể như sản phẩm nền tảng: Kubernetes platform (4), shared services gateway + identity (4), platform automation (2). Galaxy G2 tách công cụ + feedback loop; G3 tách delivery path + CI/CD.
+**Trình bày:** VNPAY kể như nền tảng (Kubernetes platform, gateway và identity dùng chung). Galaxy kể theo góc tooling và delivery.
 
-**Không đưa vào và lý do:** MeetQ chỉ giữ 1 bullet (M2b, M2c).
+**Không đưa vào và lý do:** MeetQ bị bỏ vì không liên quan Platform.
 
-Aspects chưa xuất hiện: M2 MeetQ translation pipeline: context handling, accuracy & coherence
+Aspects chưa xuất hiện: E3 Multi-chain integration: Ethereum, BSC, Polygon, Aptos, Sui; M1 MeetQ platform: LiveKit, OpenAI, transcription, voice translation, summarization; M2 MeetQ translation pipeline: pipeline design, context handling, accuracy & coherence
 
 ### python-backend
 
 | | |
 |---|---|
 | Primary / Secondary / Supporting | Galaxy FinX / Vietlink / VNPAY, EsolLabs |
-| Bullet theo công ty | Galaxy 10 · Vietlink 5 · VNPAY 5 · EsolLabs 3 · Projects 5 |
-| Sự kiện giữ lại | 20/20 sự kiện, 114/114 aspects (100%) |
+| Bullet theo công ty | Galaxy 7 · Vietlink 4 · VNPAY 4 · EsolLabs 2 · Projects 3 |
+| Sự kiện giữ lại | 20/20 sự kiện, 104/114 aspects (91%) |
 | Metric giữ lại | 12/12 |
-| Sự kiện được mở rộng thành nhiều bullet | G1×5, G2×2, M1×2, P2×2, V1×2 |
-| Diễn giải cần xác nhận (review-needed Phần A) | A1×1, A2×1, A3×2, A4×2, A6×1 |
+| Sự kiện được mở rộng thành nhiều bullet | G1×3 |
+| Diễn giải cần xác nhận (review-needed Phần A) | A1×1, A2×1, A3×1, A4×1, A6×1 |
 
-**Mở rộng:** G1 tách thành 5 bullet (sản phẩm, interest accrual, penalty/late fees, repayment, settlement). G2 tách thành framework + tốc độ kiểm chứng contract. MeetQ lên đầu với 3 bullet.
+**Trình bày:** G1 tách 3 bullet (sản phẩm, interest + penalty/late fee, repayment + settlement). MeetQ đặt lên đầu Projects.
 
 **Không đưa vào và lý do:** Không bỏ sự kiện nào. Python chỉ được gán cho Vault Core Smart Contracts.
+
+Aspects chưa xuất hiện: E3 Multi-chain integration: Ethereum, BSC, Polygon, Aptos, Sui; D2 DattingQ reliability: OpenTelemetry, Prometheus, Grafana, ELK, ClickHouse
 
 ### software-engineer
 
 | | |
 |---|---|
 | Primary / Secondary / Supporting | Cân bằng / Cả bốn công ty / - |
-| Bullet theo công ty | Galaxy 9 · Vietlink 6 · VNPAY 6 · EsolLabs 3 · Projects 5 |
-| Sự kiện giữ lại | 20/20 sự kiện, 114/114 aspects (100%) |
+| Bullet theo công ty | Galaxy 4 · Vietlink 4 · VNPAY 3 · EsolLabs 1 · Projects 3 |
+| Sự kiện giữ lại | 20/20 sự kiện, 107/114 aspects (93%) |
 | Metric giữ lại | 12/12 |
-| Sự kiện được mở rộng thành nhiều bullet | D1×2, G1×2, G2×2, G3×2, G4×2, P1×2, P2×2, V1×2, V4×2 |
-| Diễn giải cần xác nhận (review-needed Phần A) | A6×1 |
+| Sự kiện được mở rộng thành nhiều bullet | - |
+| Diễn giải cần xác nhận (review-needed Phần A) | - |
 
-**Mở rộng:** Galaxy có 9 bullet, mỗi bullet gắn nhãn theo tầng công việc (Product, Financial logic, Testing, Performance, Data, Infrastructure, Delivery, Integration). Các công ty còn lại 4–6 bullet.
+**Trình bày:** Mỗi công ty 1–4 bullet theo kết quả; các thành tích liên quan được gộp (ví dụ Kong và Keycloak thành một bullet về access control).
 
-**Không đưa vào và lý do:** Không bỏ sự kiện nào.
+**Không đưa vào và lý do:** MeetQ chỉ giữ 1 bullet.
+
+Aspects chưa xuất hiện: E3 Multi-chain integration: Ethereum, BSC, Polygon, Aptos, Sui; M2 MeetQ translation pipeline: context handling, accuracy & coherence

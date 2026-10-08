@@ -1,0 +1,93 @@
+% pdf-name: Platform_Engineer
+% Positioning: Platform Engineer -- shared foundations for engineering teams
+% and customers: Kubernetes platform, gateway + identity as shared services,
+% developer tooling, test infrastructure, delivery paths, platform automation.
+%   Primary    = VNPAY (platform product)
+%   Secondary  = Galaxy FinX (internal tooling, delivery platform)
+%   Supporting = Vietlink (data platform infra), EsolLabs
+\input{../templates/resume-template.tex}
+
+\begin{document}
+
+\cvheader{Platform Engineer}
+
+\cvsummary{%
+Platform engineer with nearly three years of experience building the shared foundations that engineering teams and customers rely on. At VNPAY Cloud, built and operated a multi-tenant Kubernetes platform on OpenStack and Cluster API (\textbf{50+ production clusters}, zero-downtime upgrades) together with shared platform services: Kong Gateway for a \textbf{100+ service} ecosystem and Keycloak identity for \textbf{20+ customer organizations}. At Vikki Digital Bank, built internal tooling and delivery infrastructure: a Golang simulation testing framework that runs \textbf{20x faster}, the AWS deployment and CI/CD path for Thought Machine Vault Core, and a Golang account migration system.}
+
+\begin{cvskills}
+Kubernetes Platform: & Kubernetes, Cluster API, OpenStack, Amazon EKS, Docker \\
+Shared Platform Services: & Kong Gateway, Keycloak (identity, RBAC, multi-tenancy), Consul, HashiCorp Vault \\
+Developer Tooling: & Test frameworks in Golang, CI/CD pipelines, Jenkins, ArgoCD, Git \\
+Infrastructure as Code: & Terraform, AWS SAM \\
+Observability: & OpenTelemetry, Prometheus, Grafana, ELK, CloudWatch, DataDog \\
+Cloud: & AWS (EKS, ECS, ECR, ELB, Lambda, RDS, S3, Athena) \\
+Languages: & Golang, Python \\
+\end{cvskills}
+
+\cvsection{Work Experience}
+
+\jobGalaxyFinX*[Internal Tooling \& Delivery Platform]
+\begin{itemize}
+    \item Rebuilt the team's \textbf{simulation testing framework} entirely in \textbf{Golang}, replacing the legacy Gauge-based framework. % @G2ab
+    \item Cut simulation test execution from \textbf{24 minutes to just over 50 seconds (20x faster)}, shortening the development feedback loop for product engineers. % @G2c !A11
+    \item Built the delivery path for Thought Machine Vault Core on AWS, deploying a new platform version on \textbf{EKS} with \textbf{RDS}, \textbf{ECR}, and \textbf{ELB}. % @G3abcde
+    \item Built the \textbf{CI/CD pipeline} that automates build, test, and deployment for the platform. % @G3f
+    \item Built account migration tooling in Golang on ECS, Lambda, and RDS, reducing a migration run from \mbox{\textbf{2.5 hours to 27 minutes (5x faster)}}. % @G4abcde
+    \item Integrated Vault Core with external backend services, supporting core banking operations and transaction workflows. % @G5abc
+    \item Developed and maintained the Lending and Overdraft products in Python Smart Contracts (interest accrual, penalty and late fees, repayment, settlement). % @G1abcdefgh
+\end{itemize}
+
+\jobVietlink*[Data Platform]
+\begin{itemize}
+    \item Codified the data platform's infrastructure with \textbf{Terraform}, building and maintaining it as code. % @V4ac
+    \item Deployed the platform's serverless components with \textbf{AWS SAM}. % @V4b
+    \item Gave the platform \textbf{CloudWatch} and \textbf{DataDog} monitoring for pipeline health, failure detection, and operational anomaly detection. % @V4defgh
+    \item Moved the platform's search and analytics backend from \textbf{Elasticsearch to OpenSearch}, redesigning ingestion and indexing flows for stability, consistency, and query performance. % @V3abcdef
+    \item Designed, built, and operated ETL pipelines on Lambda, ECS, RDS, S3, and Athena serving analytics and operational consumers. % @V1abcdefghi
+    \item Raised batch throughput by \textbf{150\%} through pipeline redesign, parallel execution, and more efficient data access. % @V2abcde
+\end{itemize}
+
+\jobVNPAY[Platform Engineer]
+\cvgroup{Kubernetes Platform}
+\begin{itemize}
+    \item Built and operated VNPAY Cloud's \textbf{Kubernetes platform} on OpenStack, hosting \textbf{50+ production clusters} for fintech and enterprise customers. % @P1abg !A10
+    \item Turned cluster creation into a platform capability with \textbf{Cluster API}, so new Kubernetes clusters are provisioned through automation rather than manual builds. % @P1cd !A5
+    \item Provided automated cluster scaling through the same Cluster API-based lifecycle. % @P1e
+    \item Delivered \textbf{zero-downtime upgrades} as part of the platform's cluster lifecycle, keeping workloads running while clusters were upgraded. % @P1f
+\end{itemize}
+\cvgroup{Shared Platform Services}
+\begin{itemize}
+    \item Ran \textbf{Kong Gateway} as the shared API gateway for a \textbf{100+ service} microservices ecosystem, centralizing access control in one layer. % @P3ab !A9
+    \item Implemented service-level and network-level access control policies in the gateway, applied consistently across services. % @P3cd !A9
+    \item Delivered multi-tenant identity as a platform service with \textbf{Keycloak}, giving \textbf{20+ customer organizations} isolated authentication. % @P2acef
+    \item Built role-based authorization on top of the identity service so that tenant boundaries are enforced for every organization. % @P2bde
+\end{itemize}
+\cvgroup{Platform Automation}
+\begin{itemize}
+    \item Automated about \textbf{80\%} of data center provisioning, turning manual operational processes into repeatable automation. % @P4ac
+    \item Automated the infrastructure configuration processes behind the platform, significantly reducing manual operational effort. % @P4bc
+\end{itemize}
+
+\jobEsolLabs
+\begin{itemize}
+    \item Built event-driven backend services synchronizing on-chain events into off-chain databases and APIs. % @E2abcdef
+    \item Integrated the services with \textbf{5+ blockchain networks} (Ethereum, BSC, Polygon, Aptos, Sui) with consistent transaction handling and data integrity. % @E3abcdefgh
+    \item Developed and reviewed \textbf{15+ smart contracts} for DeFi and NFT use cases in Solidity and Move. % @E1abcdef
+\end{itemize}
+
+\cvsection{Selected Projects}
+
+\projDattingQ
+\begin{itemize}
+    \item Implemented \textbf{multi-cluster failover} and a shared observability stack (\textbf{OpenTelemetry, Prometheus, Grafana, ELK, ClickHouse}), keeping the platform at \textbf{99.95\% uptime}. % @D2abcdefg
+    \item Built the backend on gRPC-Gateway, Kafka, MongoDB, and Redis, serving up to \textbf{1.5K requests/second} at \textbf{80--100~ms} latency. % @D1abcdef
+\end{itemize}
+
+\projMeetQ
+\begin{itemize}
+    \item Built a real-time meeting platform on LiveKit with OpenAI models for live transcription, voice translation, and summarization; designed its real-time translation pipeline. % @M1abcde @M2a
+\end{itemize}
+
+\cveducation
+
+\end{document}

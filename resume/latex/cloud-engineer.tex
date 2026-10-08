@@ -1,11 +1,8 @@
 % pdf-name: Cloud_Engineer
-% Positioning: Cloud Engineer -- cloud architecture, resource provisioning,
-% private + public cloud, tenancy/identity, service networking, scalability.
+% Positioning: Cloud Engineer. Public + private cloud: VNPAY OpenStack platform
+% is the main experience; Galaxy FinX and Vietlink show AWS service usage.
 % Differs from DevOps: describes what runs on which cloud services and how
 % tenants and traffic are isolated, rather than delivery workflow.
-%   Primary    = VNPAY (OpenStack private cloud architecture)
-%   Secondary  = Galaxy FinX (AWS for core banking), Vietlink (AWS data platform)
-%   Supporting = EsolLabs
 \input{../templates/resume-template.tex}
 
 \begin{document}
@@ -13,82 +10,57 @@
 \cvheader{Cloud Engineer}
 
 \cvsummary{%
-Cloud engineer with nearly three years of experience across private and public cloud. Designed and operated VNPAY Cloud's \textbf{OpenStack}-based private cloud hosting \textbf{50+ production Kubernetes clusters} for fintech and enterprise customers, with Keycloak-based tenant isolation for \textbf{20+ customer organizations} and Kong Gateway access control for \textbf{100+ services}. On \textbf{AWS}, deployed Thought Machine Vault Core on EKS, RDS, ECR, and Elastic Load Balancing for a digital bank, ran account migration on ECS and Lambda, and built serverless and containerized data pipelines on Lambda, ECS, S3, Athena, and RDS for a utility platform serving millions of users.}
+Cloud Engineer with experience on both AWS and OpenStack. Designed and operated VNPAY Cloud's private cloud, which runs 50+ production Kubernetes clusters for fintech and enterprise customers. On AWS, has deployed core banking and data workloads on EKS, ECS, Lambda, RDS, S3, and Athena, with infrastructure managed in Terraform.}
 
 \begin{cvskills}
-Private Cloud: & OpenStack, Cluster API, Kubernetes \\
-AWS Compute \& Containers: & Amazon EKS, Amazon ECS, AWS Lambda, Amazon ECR \\
-AWS Storage, Data \& Network: & Amazon RDS, Amazon S3, Amazon Athena, Elastic Load Balancing \\
-Provisioning: & Terraform, AWS SAM, Cluster API \\
-Identity \& Security: & Keycloak, RBAC, multi-tenant isolation, HashiCorp Vault \\
-Service Networking: & Kong Gateway (service- and network-level access control), Consul \\
-Cloud Operations: & CloudWatch, DataDog, Prometheus, Grafana, OpenTelemetry \\
-Languages: & Golang, Python \\
+Cloud Platforms: & AWS, OpenStack \\
+AWS Services: & EKS, ECS, Lambda, RDS, S3, Athena, ELB \\
+Kubernetes: & Kubernetes, Cluster API, Docker \\
+IaC \& Monitoring: & Terraform, AWS SAM, CloudWatch, DataDog \\
+Identity \& Access: & Keycloak, RBAC, Kong Gateway \\
 \end{cvskills}
 
 \cvsection{Work Experience}
 
 \jobGalaxyFinX*[AWS Cloud Infrastructure]
 \begin{itemize}
-    \item Deployed a new \textbf{Thought Machine Vault Core} version on AWS for Vikki Digital Bank's core banking platform. % @G3a
-    \item Ran the platform on \textbf{Amazon EKS}, with \textbf{Amazon RDS} as its managed database, \textbf{Amazon ECR} as its container registry, and \textbf{Elastic Load Balancing} in front of it. % @G3bcde !A7
-    \item Automated releases of the platform through a CI/CD pipeline covering build, test, and deployment. % @G3f
-    \item Built the account migration system on a mix of \textbf{ECS} containers and \textbf{Lambda} functions over RDS (Golang), reducing migration time from \mbox{\textbf{2.5 hours to 27 minutes (5x faster)}}. % @G4abcde !A18
-    \item Integrated the cloud-hosted Vault Core with the bank's external backend services for core banking operations and transaction workflows. % @G5abc
-    \item Cut simulation test time for the platform from \textbf{24 minutes to just over 50 seconds (20x)} by rebuilding the Gauge-based framework in Golang. % @G2abc
-    \item On the application side, developed and maintained Lending and Overdraft products (Python Smart Contracts): interest accrual, penalty and late fees, repayment, and settlement. % @G1abcdefgh
+    \item Deployed a new Thought Machine Vault Core version on AWS: EKS for the platform workloads, RDS for the database, ECR for container images, and ELB for load balancing. % @G3abcde !A7
+    \item Set up the CI/CD pipeline that builds, tests, and deploys the platform. % @G3f
+    \item Ran the account migration system as a mix of ECS containers and Lambda functions over RDS; the Golang implementation cut migration time from \mbox{\textbf{2.5 hours to 27 minutes}}. % @G4abcde !A18
+    \item Rebuilt the Gauge-based simulation testing framework in Golang, cutting test time from \textbf{24 minutes to just over 50 seconds}. % @G2abc
+    \item Outside the infrastructure work, developed Lending and Overdraft logic in Vault Core's Python Smart Contracts and connected the platform to external backend services. % @G1abcdefgh @G5abc
 \end{itemize}
 
 \jobVietlink*[AWS Data Platform]
 \begin{itemize}
-    \item Designed and operated serverless and containerized \textbf{ETL pipelines} on \textbf{AWS Lambda} and \textbf{Amazon ECS} for au Denki's large-scale utility data. % @V1abcg
-    \item Organized storage and querying on \textbf{Amazon S3} and \textbf{Amazon Athena} for analytics, with \textbf{Amazon RDS} serving relational and operational data. % @V1defhi !A6
-    \item Provisioned the platform's AWS resources with \textbf{Terraform} and its serverless components with \textbf{AWS SAM}. % @V4abc
-    \item Monitored the AWS workloads with \textbf{CloudWatch} and \textbf{DataDog} for pipeline health, failures, and operational anomalies. % @V4defgh
-    \item Scaled batch processing throughput by \textbf{150\%} through pipeline redesign, parallel execution, and more efficient data access. % @V2abcde
-    \item Migrated search from \textbf{Elasticsearch to OpenSearch}, redesigning ingestion and indexing flows for stability, consistency, and query performance. % @V3abcdef
+    \item Built and operated ETL pipelines on AWS, using Lambda for serverless steps and ECS for containerized batch jobs, with S3 and Athena for storage and querying and RDS for relational data. % @V1abcdefghi !A6
+    \item Provisioned the platform's AWS resources with Terraform and deployed its serverless components with AWS SAM. % @V4abc
+    \item Monitored the workloads with CloudWatch and DataDog for pipeline health, failures, and operational anomalies. % @V4defgh
+    \item Improved batch throughput by \textbf{150\%} through pipeline redesign, parallel execution, and better data access patterns. % @V2abcde
+    \item Moved search workloads onto OpenSearch from Elasticsearch, with redesigned ingestion and indexing that improved stability, consistency, and query performance. % @V3abcdef
 \end{itemize}
 
 \jobVNPAY[Cloud Engineer, OpenStack \& Kubernetes]
-\cvgroup{Private Cloud Architecture}
 \begin{itemize}
-    \item Designed the private cloud platform behind VNPAY Cloud on \textbf{OpenStack} infrastructure, serving a fintech and enterprise customer base. % @P1ab !A10
-    \item Operated the platform in production at a scale of \textbf{50+ Kubernetes clusters}. % @P1ag
-    \item Used \textbf{Cluster API} to provision Kubernetes clusters on OpenStack declaratively, making new cluster capacity an automated operation. % @P1cd !A5
-    \needspace{5\baselineskip}% keep the last two bullets of this group together
-    \item Scaled clusters through Cluster API-driven automation instead of hand-built infrastructure work. % @P1e !A5
-    \item Upgraded production clusters with \textbf{zero downtime} through Cluster API's rolling machine replacement. % @P1f !A5
-\end{itemize}
-\cvgroup{Multi-tenant Identity and Access}
-\begin{itemize}
-    \item Implemented tenant isolation for \textbf{20+ customer organizations} on shared cloud infrastructure, backed by \textbf{Keycloak} multi-tenant authentication. % @P2acef
-    \item Implemented role-based access control so that each tenant's users only reach their own organization's resources. % @P2bde !A23
-\end{itemize}
-\cvgroup{Service Networking and Automation}
-\begin{itemize}
-    \item Integrated and operated \textbf{Kong Gateway} as the access layer for a microservices ecosystem of \textbf{100+ services}. % @P3ab !A9
-    \item Controlled access at both the service level and the network level through gateway policies. % @P3cd
-    \item Automated about \textbf{80\%} of data center provisioning and infrastructure configuration, cutting manual effort in infrastructure delivery. % @P4abc
+    \item Designed the OpenStack architecture behind VNPAY Cloud and operated it in production, hosting \textbf{50+} Kubernetes clusters for fintech and enterprise customers. % @P1abg !A10
+    \item Used Cluster API to provision and scale Kubernetes clusters on OpenStack declaratively, without hand-built infrastructure. % @P1cde !A5
+    \item Kept production clusters available during Kubernetes version upgrades by rolling machines through Cluster API, with zero downtime. % @P1f !A5
+    \item Implemented tenant isolation for \textbf{20+} customer organizations with Keycloak-based multi-tenant authentication and role-based access control. % @P2abcdef
+    \item Set up Kong Gateway as the access layer for \textbf{100+} microservices and operated it, with access policies at both the service and the network level. % @P3abcd !A9
+    \item Automated about \textbf{80\%} of the provisioning and configuration work in VNPAY's data centers. % @P4abc
 \end{itemize}
 
 \jobEsolLabs
 \begin{itemize}
-    \item Built event-driven services bridging on-chain events and off-chain databases and APIs. % @E2abcdef
-    \item Connected the services to \textbf{5+ blockchain networks} (Ethereum, BSC, Polygon, Aptos, Sui), ensuring consistent transaction handling and data integrity. % @E3abcdefgh
-    \item Developed and reviewed \textbf{15+ smart contracts} in Solidity (EVM chains) and Move (Aptos, Sui) for DeFi and NFT use cases. % @E1abcdef !A19
+    \item Built event-driven services connecting on-chain events to off-chain databases and APIs across \textbf{5+} blockchain networks, with consistent transaction handling. % @E2abcdef @E3agh
+    \item Developed and reviewed \textbf{15+} smart contracts for DeFi and NFT use cases in Solidity and Move. % @E1abcdef
 \end{itemize}
 
 \cvsection{Selected Projects}
 
 \projDattingQ
 \begin{itemize}
-    \item Ran the backend across multiple clusters with \textbf{failover}, monitored through OpenTelemetry, Prometheus, Grafana, ELK, and ClickHouse, at \textbf{99.95\% uptime}. % @D2abcdefg
-    \item Built the backend on gRPC-Gateway, Kafka, MongoDB, and Redis, serving up to \textbf{1.5K requests/second} at \textbf{80--100~ms} latency. % @D1abcdef
-\end{itemize}
-
-\projMeetQ
-\begin{itemize}
-    \item Built a real-time meeting platform on LiveKit with OpenAI models for live transcription, voice translation, and summarization, and designed its real-time translation pipeline. % @M1abcde @M2a
+    \item Set up multi-cluster failover and monitoring (OpenTelemetry, Prometheus, Grafana, ELK, ClickHouse) for a backend that handled up to \textbf{1.5K} requests per second at \textbf{99.95\%} uptime. % @D2abcdefg @D1e
 \end{itemize}
 
 \cveducation

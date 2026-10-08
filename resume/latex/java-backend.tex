@@ -1,11 +1,7 @@
 % pdf-name: Java_Backend_Engineer
-% Positioning: backend competencies that transfer to Java/Spring Boot --
-% transaction processing, integrations, microservices, authN/authZ,
-% relational data, messaging, automated testing, delivery.
-%   Primary    = Galaxy FinX   Secondary = VNPAY
-%   Supporting = Vietlink, EsolLabs
-% Honesty: no Golang/Python system is presented as Java. Java/Spring Boot
-% appear only as skills (as in the source CV).
+% Positioning: backend experience that transfers to Java/Spring Boot.
+% Honesty: no Golang/Python system is presented as Java. Java and Spring Boot
+% are listed as working knowledge only (as in the source CV).
 \input{../templates/resume-template.tex}
 
 \begin{document}
@@ -13,78 +9,61 @@
 \cvheader{Java Backend Engineer}
 
 \cvsummary{%
-Backend engineer moving into Java and Spring Boot, with nearly three years of production backend experience in Golang and Python on transactional, integration-heavy systems: lending and overdraft transaction logic on Thought Machine Vault Core at a digital bank, integrations between the core banking platform and external services, a microservices ecosystem of \textbf{100+ services} behind Kong Gateway, Keycloak-based multi-tenant authorization for \textbf{20+ organizations}, and a Kafka, Redis, and MongoDB backend serving \textbf{1.5K requests/second}. Working knowledge of \textbf{Java} and \textbf{Spring Boot}; the production systems below were built in Golang and Python.}
+Backend engineer with production experience in Golang and Python and working knowledge of Java and Spring Boot. Has worked on core banking transaction logic, service integrations, multi-tenant authentication, and microservices behind an API gateway, all of which carry over to Spring-based backends.}
 
 \begin{cvskills}
-Languages: & Java, Spring Boot (working knowledge); Golang, Python, SQL (production) \\
-APIs \& Architecture: & REST/JSON, gRPC, microservices, API gateway, event-driven services \\
-Security: & Authentication and authorization, Keycloak, RBAC, multi-tenancy \\
-Data: & PostgreSQL, Amazon RDS, Redis, MongoDB, OpenSearch \\
-Messaging: & Kafka, RabbitMQ \\
-Testing \& Delivery: & Automated simulation testing, CI/CD, Docker, Kubernetes, Jenkins, Git \\
-Cloud: & AWS (EKS, ECS, RDS, Lambda, ECR, ELB) \\
+Languages: & Golang, Python, SQL, Java (working knowledge) \\
+Frameworks \& APIs: & Spring Boot (working knowledge), REST APIs, gRPC \\
+Data \& Messaging: & PostgreSQL, Redis, MongoDB, Kafka \\
+Security: & Keycloak, RBAC \\
+Infrastructure: & Docker, Kubernetes, AWS, CI/CD \\
 \end{cvskills}
 
 \cvsection{Work Experience}
 
 \jobGalaxyFinX[Backend Engineer, Core Banking]
-\cvgroup{Transaction Processing}
 \begin{itemize}
-    \item Modeled \textbf{financial transactions} for the Lending and Overdraft products on Thought Machine Vault Core, implemented and maintained as Python Smart Contracts. % @G1abgh
-    \item Implemented interest accrual and penalty and late-fee calculations, where correctness directly determines what customers owe. % @G1cd !A4
-    \item Implemented the \textbf{repayment and settlement} flows that close out each lending and overdraft obligation. % @G1ef !A4
-\end{itemize}
-\cvgroup{Integration and Data}
-\begin{itemize}
-    \item Integrated the core banking platform with \textbf{external backend services} that drive the bank's operational and transaction workflows. % @G5abc
-    \item Cut account migration from \mbox{\textbf{2.5 hours to 27 minutes (5x)}} with a dedicated migration system over \textbf{Amazon RDS}, written in Golang and run on ECS and Lambda. % @G4abcde
-\end{itemize}
-\cvgroup{Testing and Delivery}
-\begin{itemize}
-    \item Rewrote the automated test harness for product simulations, moving it from Gauge to a \textbf{Golang} framework. % @G2ab !A3
-    \item Made simulation test runs \textbf{20x faster}, from 24 minutes to just over 50 seconds. % @G2c
-    \item Shipped a new Vault Core version to \textbf{Amazon EKS}, with container images in ECR, RDS as its database, and traffic through ELB. % @G3abcde !A7
-    \item Built the \textbf{CI/CD pipeline} that automates build, test, and deployment. % @G3f
+    \item Implemented transaction logic for the Lending and Overdraft products on Thought Machine Vault Core (Python Smart Contracts), including interest accrual and penalty and late-fee calculation. % @G1abcdgh
+    \item Implemented the repayment and settlement flows that close out what customers owe under each product. % @G1ef !A4
+    \item Built integrations between Vault Core and the bank's external backend services, supporting core banking operations and transaction workflows. % @G5abc
+    \item Built an account migration system in Golang, backed by Amazon RDS and running on ECS and Lambda, that reduced migration time from \mbox{\textbf{2.5 hours to 27 minutes}}. % @G4abcde
+    \item Rebuilt the automated simulation testing framework in Golang, replacing the Gauge-based framework and cutting test runs from \textbf{24 minutes to just over 50 seconds}. % @G2abc
+    \item Deployed a new Vault Core version to Amazon EKS (with RDS, ECR, and ELB) and built the CI/CD pipeline for build, test, and deployment. % @G3abcdef
 \end{itemize}
 
 \jobVietlink*[Backend \& Data Services]
 \begin{itemize}
-    \item Reworked \textbf{data access patterns} and parallelized batch processing as part of a pipeline redesign, increasing throughput by \textbf{150\%}. % @V2abcde
-    \item Migrated the search service to \textbf{OpenSearch} from Elasticsearch as part of modernizing the analytics stack. % @V3a
-    \item Redesigned its data ingestion and indexing for consistency, stability, and query performance. % @V3bcdef
-    \item Developed ETL services on AWS Lambda and ECS with RDS as the relational store and S3 with Athena for analytics, processing large-scale utility data. % @V1abcdefghi !A6
-    \item Operated the services in production with Terraform and AWS SAM deployments and CloudWatch and DataDog monitoring of health, failures, and anomalies. % @V4abcdefgh
+    \item Improved batch throughput by \textbf{150\%} by reworking data access patterns, redesigning the pipelines, and running processing in parallel. % @V2abcde
+    \item Migrated the search service from Elasticsearch to OpenSearch, redesigning data ingestion and indexing for consistency, stability, and query performance. % @V3abcdef
+    \item Built ETL services on AWS Lambda and ECS, with RDS as the relational store and S3 and Athena for analytics. % @V1abcdefghi !A6
+    \item Managed the services with Terraform and AWS SAM and monitored them in CloudWatch and DataDog. % @V4abcdefgh
 \end{itemize}
 
 \jobVNPAY*[Microservices \& Identity]
 \begin{itemize}
-    \item Ran the \textbf{API gateway} (Kong) in front of a \textbf{microservices ecosystem of 100+ services}. % @P3ab !A9
-    \item Centralized service-level and network-level access control in the gateway layer. % @P3cd !A9
-    \item Implemented \textbf{authentication} for a multi-tenant platform on \textbf{Keycloak}, serving \textbf{20+ customer organizations}. % @P2acf
-    \item Implemented the \textbf{authorization model} with role-based access control, keeping each organization isolated from the others. % @P2bde
-    \item Operated \textbf{50+ production Kubernetes clusters} for VNPAY Cloud on OpenStack, with provisioning, scaling, and zero-downtime upgrades automated through Cluster API. % @P1abcdefg
-    \item Cut manual operational effort by automating about \textbf{80\%} of data center provisioning and configuration processes. % @P4abc
+    \item Integrated and operated Kong Gateway as the API gateway for a microservices ecosystem of \textbf{100+} services, with service-level and network-level access control. % @P3abcd !A9
+    \item Implemented authentication and role-based authorization for a multi-tenant platform using Keycloak, keeping \textbf{20+} customer organizations isolated. % @P2abcdef
+    \item Operated \textbf{50+} production Kubernetes clusters on OpenStack, with provisioning, scaling, and zero-downtime upgrades automated through Cluster API. % @P1abcdefg
+    \item Cut manual operations work by automating around \textbf{80\%} of data center provisioning and configuration. % @P4abc
 \end{itemize}
 
 \jobEsolLabs
 \begin{itemize}
-    \item Developed event-driven services (capture, process, persist) that move on-chain events into off-chain databases and expose them through APIs. % @E2abcdef
-    \item Kept transaction handling consistent and data intact across \textbf{5+ blockchain networks} (Ethereum, BSC, Polygon, Aptos, Sui). % @E3abcdefgh
-    \item Delivered \textbf{15+} reviewed smart contracts (Solidity, Move) for DeFi and NFT use cases. % @E1abcdef
+    \item Built event-driven backend services that write on-chain events into off-chain databases and APIs, with consistent transaction handling across \textbf{5+} blockchain networks. % @E2abcdef @E3agh
+    \item Also developed and reviewed \textbf{15+} smart contracts in Solidity and Move. % @E1abcdef
 \end{itemize}
 
 \cvsection{Selected Projects}
 
 \projDattingQ
 \begin{itemize}
-    \item Built a backend exposing \textbf{REST/JSON APIs} through gRPC-Gateway in front of gRPC services. % @D1a !A8
-    \item Used \textbf{Kafka} for messaging and \textbf{Redis} and \textbf{MongoDB} for storage, sustaining up to \textbf{1.5K requests/second} at \textbf{80--100~ms}. % @D1bcdef
-    \item Implemented multi-cluster failover and observability (OpenTelemetry, Prometheus, Grafana, ELK, ClickHouse) for \textbf{99.95\% uptime}. % @D2abcdefg
+    \item Built a backend that exposes REST/JSON APIs through gRPC-Gateway, uses Kafka for messaging and Redis and MongoDB for storage, and handled up to \textbf{1.5K} requests per second at 80--100~ms latency. % @D1abcdef !A8
+    \item Set up multi-cluster failover and observability (OpenTelemetry, Prometheus, Grafana, ELK, ClickHouse) for \textbf{99.95\%} uptime. % @D2abcdefg
 \end{itemize}
 
 \projMeetQ
 \begin{itemize}
-    \item Built a real-time meeting backend on LiveKit integrating OpenAI models for transcription, voice translation, and summaries; designed the real-time translation pipeline and its context handling. % @M1abcde @M2ab
+    \item Built a real-time meeting backend on LiveKit with OpenAI-based transcription, voice translation, and summaries, including the real-time translation pipeline. % @M1abcde @M2a
 \end{itemize}
 
 \cveducation

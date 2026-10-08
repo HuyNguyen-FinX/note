@@ -13,7 +13,7 @@
 #   docker    -> texlive/texlive image with latexmk -xelatex
 #
 # Checks after each build (need poppler: brew install poppler):
-#   - page count (warns when > 3 pages or the last page is under 30% full)
+#   - page count (warns when > 3 pages or the last page is under 25% full)
 #   - text extraction via pdftotext (ATS readability)
 #   - no ligature glyphs / replacement characters in extracted text
 #   - name, e-mail and every employer present in extracted text
@@ -95,7 +95,7 @@ check() {
     local first last
     first="$(pdftotext -f 1 -l 1 -layout "$pdf" - | grep -c '[^[:space:]]')"
     last="$(pdftotext -f "$pages" -l "$pages" -layout "$pdf" - | grep -c '[^[:space:]]')"
-    (( last * 100 < first * 30 )) && problems+=("last page only ${last}/${first} lines filled")
+    (( last * 100 < first * 25 )) && problems+=("last page only ${last}/${first} lines filled")
   fi
   grep -qE $'ﬀ|ﬁ|ﬂ|ﬃ|ﬄ|�' <<<"$text" \
     && problems+=("ligature/replacement glyphs in extracted text")

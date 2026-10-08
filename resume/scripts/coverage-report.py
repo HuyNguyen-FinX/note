@@ -45,35 +45,35 @@ COMPANY_MACROS = [("Galaxy FinX", r"\jobGalaxyFinX"), ("Vietlink", r"\jobVietlin
 # Narrative per CV: role allocation and what was expanded or left out (and why).
 NOTES = {
     "data-engineer": ("Vietlink", "Galaxy FinX", "VNPAY, EsolLabs",
-        "Vietlink V1–V4 tách thành 13 bullet trong 4 nhóm (Pipeline Architecture, Batch Optimization, Search & Analytics, Reliability & Operations). Galaxy G4 tách thành 2 bullet (hệ thống + mô hình chạy ECS/Lambda/RDS); G1 tách thành tính toán và repayment/settlement. EsolLabs kể theo góc ingestion.",
+        "Vietlink 7 bullet (kiến trúc ETL, vai trò từng dịch vụ AWS, transformation, tối ưu 150%, OpenSearch, IaC, monitoring). Galaxy kể theo góc data migration.",
         "Không bỏ sự kiện nào."),
     "devops-engineer": ("VNPAY", "Galaxy FinX", "Vietlink, EsolLabs",
-        "VNPAY P1 tách thành 5 bullet về lifecycle (OpenStack, vận hành 50+ cluster, provisioning, scaling, zero-downtime upgrade); P4 thành 2; P2 thành authentication + RBAC. Galaxy G3 tách thành deploy, hạ tầng EKS/RDS/ECR/ELB và CI/CD. Vietlink V4 tách thành Terraform, SAM, CloudWatch, DataDog.",
-        "MeetQ chỉ giữ 1 bullet (M2b, M2c bỏ vì ít liên quan DevOps)."),
+        "VNPAY 6 bullet (OpenStack, lifecycle với Cluster API, zero-downtime upgrade, automation 80%, Kong, Keycloak). Galaxy tách deploy và CI/CD.",
+        "MeetQ bị bỏ vì không liên quan DevOps."),
     "cloud-engineer": ("VNPAY", "Galaxy FinX + Vietlink", "EsolLabs",
-        "VNPAY kể theo kiến trúc private cloud: P1 tách 5 bullet, P2 tách tenant isolation + RBAC, P3 tách gateway + chính sách truy cập. Galaxy G3 kể theo vai trò từng dịch vụ AWS. Vietlink V1 tách serverless/container và storage/query.",
-        "MeetQ chỉ giữ 1 bullet (M2b, M2c)."),
+        "VNPAY 6 bullet theo góc kiến trúc private cloud và tenant isolation. Galaxy kể vai trò từng dịch vụ AWS.",
+        "MeetQ bị bỏ; DattingQ chỉ giữ 1 bullet về failover và monitoring."),
     "platform-engineer": ("VNPAY", "Galaxy FinX", "Vietlink, EsolLabs",
-        "VNPAY kể như sản phẩm nền tảng: Kubernetes platform (4), shared services gateway + identity (4), platform automation (2). Galaxy G2 tách công cụ + feedback loop; G3 tách delivery path + CI/CD.",
-        "MeetQ chỉ giữ 1 bullet (M2b, M2c)."),
+        "VNPAY kể như nền tảng (Kubernetes platform, gateway và identity dùng chung). Galaxy kể theo góc tooling và delivery.",
+        "MeetQ bị bỏ vì không liên quan Platform."),
     "golang-backend": ("Galaxy FinX", "Vietlink", "VNPAY, EsolLabs",
-        "Galaxy chia 3 nhóm: Account Migration (Go), Testing Infrastructure (Go), Integration & Delivery. DattingQ thành Key Project 4 bullet (API layer, messaging/data, hiệu năng, độ tin cậy).",
-        "Không bỏ sự kiện nào. Chi tiết concurrency/worker của Go **không** được nhận vì chưa xác minh (review-needed B1/B2)."),
+        "Galaxy có 2 hệ thống Go đứng đầu; DattingQ là Key Project với 3 bullet (API layer, messaging/storage, reliability).",
+        "MeetQ chỉ giữ 1 bullet (M2b, M2c bỏ). Chi tiết concurrency của Go chưa được nhận (review-needed B1/B2)."),
     "python-backend": ("Galaxy FinX", "Vietlink", "VNPAY, EsolLabs",
-        "G1 tách thành 5 bullet (sản phẩm, interest accrual, penalty/late fees, repayment, settlement). G2 tách thành framework + tốc độ kiểm chứng contract. MeetQ lên đầu với 3 bullet.",
+        "G1 tách 3 bullet (sản phẩm, interest + penalty/late fee, repayment + settlement). MeetQ đặt lên đầu Projects.",
         "Không bỏ sự kiện nào. Python chỉ được gán cho Vault Core Smart Contracts."),
-    "java-backend": ("Galaxy FinX", "VNPAY", "Vietlink, EsolLabs",
-        "Galaxy chia Transaction Processing / Integration & Data / Testing & Delivery. VNPAY 6 bullet theo góc microservices và identity (gateway, access control, authentication, authorization model).",
-        "MeetQ gộp còn 1 bullet. Không có hệ thống Golang/Python nào được trình bày thành Java."),
+    "java-backend": ("Galaxy FinX", "VNPAY + Vietlink", "EsolLabs",
+        "Galaxy tách transaction logic và repayment/settlement; VNPAY kể theo góc API gateway và identity.",
+        "MeetQ gộp còn 1 bullet. Không hệ thống Golang/Python nào được trình bày thành Java."),
     "fintech-backend": ("Galaxy FinX", "VNPAY + EsolLabs", "Vietlink",
-        "G1 tách 5 bullet (sản phẩm, interest accrual, penalty/late fees, repayment, settlement); G4 tách hệ thống + tác động; G2 tách framework + tốc độ; G3 tách deploy + CI/CD. EsolLabs E3 tách consistent transactions và data integrity.",
-        "MeetQ chỉ giữ 1 bullet (M2b, M2c)."),
+        "Galaxy 8 bullet theo vòng đời sản phẩm (sản phẩm, interest accrual, penalty/late fee, repayment/settlement, integration, migration, testing, deploy).",
+        "MeetQ bị bỏ vì không liên quan FinTech."),
     "backend-engineer": ("Galaxy FinX", "Vietlink + VNPAY", "EsolLabs",
-        "Galaxy chia Integration & Transaction Logic / Migration Backend / Testing & Deployment. VNPAY tách gateway, access control, authentication, authorization. Vietlink tách V3 thành migration + ingestion/indexing, V4 thành IaC + monitoring.",
-        "Không bỏ sự kiện nào."),
+        "Galaxy mở đầu bằng integration; tách interest/fees và repayment/settlement.",
+        "MeetQ gộp còn 1 bullet."),
     "software-engineer": ("Cân bằng", "Cả bốn công ty", "-",
-        "Galaxy có 9 bullet, mỗi bullet gắn nhãn theo tầng công việc (Product, Financial logic, Testing, Performance, Data, Infrastructure, Delivery, Integration). Các công ty còn lại 4–6 bullet.",
-        "Không bỏ sự kiện nào."),
+        "Mỗi công ty 1–4 bullet theo kết quả; các thành tích liên quan được gộp (ví dụ Kong và Keycloak thành một bullet về access control).",
+        "MeetQ chỉ giữ 1 bullet."),
 }
 
 
@@ -139,7 +139,7 @@ def main():
 | Sự kiện được mở rộng thành nhiều bullet | {expanded_facts} |
 | Diễn giải cần xác nhận (review-needed Phần A) | {", ".join(f"{k}×{v}" for k, v in sorted(flags.items(), key=lambda x: int(x[0][1:]))) or "-"} |
 
-**Mở rộng:** {expanded}
+**Trình bày:** {expanded}
 
 **Không đưa vào và lý do:** {excluded}
 {"" if not missing else chr(10) + "Aspects chưa xuất hiện: " + "; ".join(missing) + chr(10)}""")

@@ -1,0 +1,261 @@
+% =========================================================
+% SHARED RESUME TEMPLATE -- Nguyen Gia Huy
+% ---------------------------------------------------------
+% Every CV in ../latex/ starts with:
+%     \input{../templates/resume-template.tex}
+%
+% Single source of truth for:
+%   - layout, fonts, spacing (ATS-friendly, single column)
+%   - personal information
+%   - employers, job titles and dates (timeline)
+%   - project headers, education and certification
+% Role-specific files only provide the headline, summary,
+% skills and bullet points.
+%
+% Engine: XeLaTeX or LuaLaTeX (fontspec). Tectonic works too.
+% =========================================================
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage{iftex}
+\RequireTUTeX
+
+% ---------------------------------------------------------
+% FONT
+% TeX Gyre Heros (Helvetica-style sans), loaded by file name
+% so it works on TeX Live, MacTeX, MiKTeX and Tectonic.
+% Common ligatures (fi, fl, ff, ffi) are disabled so that
+% text extracted by ATS parsers stays plain ASCII.
+% ---------------------------------------------------------
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures={TeX,NoCommon}}
+\setmainfont{texgyreheros}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic
+]
+\renewcommand{\familydefault}{\rmdefault}
+
+% ---------------------------------------------------------
+% PAGE SETUP
+% ---------------------------------------------------------
+\usepackage[
+    a4paper,
+    top=1.2cm,
+    bottom=1.6cm,
+    footskip=0.7cm,
+    left=1.55cm,
+    right=1.55cm
+]{geometry}
+
+\usepackage{xparse}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[hidelinks]{hyperref}
+
+% Footer from page 2 on: name, target role, page x of y.
+\newcommand{\cvrole}{}
+\fancypagestyle{cvpages}{%
+    \fancyhf{}%
+    \renewcommand{\headrulewidth}{0pt}%
+    \fancyfoot[C]{\ifnum\value{page}>1\footnotesize\cvname\enspace|\enspace\cvrole\enspace|\enspace Page \thepage\ of \pageref{LastPage}\fi}%
+}
+\pagestyle{cvpages}
+\raggedbottom
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+
+% No hyphenation + ragged right: words are never split across lines,
+% so ATS keyword matching sees "control", not "con- trol".
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+% Never split a bullet (or any short paragraph) across two pages.
+\widowpenalty=10000
+\clubpenalty=10000
+% Ragged right with a finite stretch plus a demanding \parfillskip: TeX
+% rebalances line breaks so a bullet never ends on a one-word last line.
+% Applied to the document, to every list (lists reset \parfillskip) and
+% to the summary.
+\newcommand{\cvpar}{%
+    \setlength{\rightskip}{0pt plus 5em}%
+    \setlength{\parfillskip}{0pt plus 0.5\linewidth}%
+    \setlength{\emergencystretch}{2em}%
+    \tolerance=300\relax
+}
+\AtBeginDocument{\cvpar}
+
+% ---------------------------------------------------------
+% BULLETS
+% ---------------------------------------------------------
+\setlist[itemize]{
+    leftmargin=1.1em,
+    label=\raisebox{0.15ex}{\scriptsize$\bullet$},
+    itemsep=1.6pt,
+    topsep=2pt,
+    parsep=0pt,
+    partopsep=0pt,
+    first=\cvpar
+}
+
+% =========================================================
+% PERSONAL INFORMATION (edit here only)
+% =========================================================
+\newcommand{\cvname}{Nguyen Gia Huy}
+\newcommand{\cvemail}{johnnynguyen882@gmail.com}
+\newcommand{\cvphone}{0948385149}
+\newcommand{\cvlinkedin}{linkedin.com/in/huy8bit}
+
+% =========================================================
+% BASE FONT SIZE
+% ---------------------------------------------------------
+% \cvfontsize can be redefined in a CV *before* \cvheader
+% if a version needs a slightly tighter fit.
+% =========================================================
+\newcommand{\cvfontsize}{\fontsize{10pt}{12.3pt}\selectfont}
+
+% =========================================================
+% HEADER
+% #1 = target role headline
+% =========================================================
+\newcommand{\cvheader}[1]{%
+    \renewcommand{\cvrole}{#1}%
+    \hypersetup{
+        pdftitle   = {\cvname{} - #1 - Resume},
+        pdfauthor  = {\cvname},
+        pdfsubject = {Resume - #1},
+        pdfkeywords= {#1, resume, CV}
+    }%
+    \cvfontsize
+    \begin{center}
+        {\fontsize{19pt}{22pt}\selectfont\textbf{\MakeUppercase{\cvname}}}\\[2pt]
+        {\large #1}\\[3pt]
+        {\small
+        \href{mailto:\cvemail}{\cvemail}%
+        \enspace|\enspace
+        \cvphone%
+        \enspace|\enspace
+        \href{https://www.\cvlinkedin}{\cvlinkedin}}
+    \end{center}
+    \vspace{-6pt}%
+}
+
+% =========================================================
+% SECTION
+% =========================================================
+\newcommand{\cvsection}[1]{%
+    \par\needspace{6\baselineskip}\vspace{7pt}%
+    {\normalsize\textbf{\MakeUppercase{#1}}}\par
+    \vspace{1.5pt}%
+    \hrule height 0.5pt
+    \vspace{3pt}%
+}
+
+% =========================================================
+% SUMMARY
+% =========================================================
+\newcommand{\cvsummary}[1]{%
+    \cvsection{Professional Summary}
+    {\cvpar #1\par}
+}
+
+% =========================================================
+% SKILLS TABLE
+% Usage:
+%   \begin{cvskills}
+%   Languages: & Golang, Python \\
+%   \end{cvskills}
+% =========================================================
+\newenvironment{cvskills}{%
+    \cvsection{Technical Skills}
+    \renewcommand{\arraystretch}{1.08}%
+    \tabularx{\textwidth}{@{}>{\bfseries}l@{\hspace{8pt}}>{\raggedright\arraybackslash}X@{}}%
+}{%
+    \endtabularx\par
+}
+
+% =========================================================
+% EXPERIENCE ENTRY
+% #1 displayed title (functional title + official title)
+% #2 dates, #3 company, #4 one-line company/product context
+% =========================================================
+\newcommand{\cvjob}[4]{%
+    \par\needspace{8.5\baselineskip}\vspace{6pt}%
+    \textbf{#1}\hfill#2\par
+    {\small\textbf{#3}\enspace|\enspace\textit{#4}\par}%
+}
+
+\newcommand{\cvproject}[3]{%
+    \par\needspace{5\baselineskip}\vspace{5pt}%
+    \textbf{#1}\enspace|\enspace#2\hfill{\small\itshape #3}\par
+}
+
+% Sub-heading that groups related bullets inside one job.
+\newcommand{\cvgroup}[1]{%
+    \par\needspace{5.5\baselineskip}\vspace{2.5pt}%
+    {\small\bfseries\itshape #1}\par
+}
+
+% =========================================================
+% FIXED TIMELINE -- employers, dates, official titles
+% ---------------------------------------------------------
+% Each job macro accepts a functional title so a CV can
+% position the role, while the official title always stays
+% visible for background checks:
+%   \jobVietlink                      -> Software Engineer
+%   \jobVietlink[Data Engineer]       -> Data Engineer (Software Engineer)
+%   \jobVietlink*[Data Platform]      -> Software Engineer -- Data Platform
+% Optional last argument overrides the context line.
+% =========================================================
+% #1 star flag, #2 optional title, #3 official full title, #4 official short title
+\NewDocumentCommand{\jobtitle}{m m m m}{%
+    \IfValueTF{#2}%
+        {\IfBooleanTF{#1}{#4 \textendash\ #2}{#2 {\mdseries(#4)}}}%
+        {#3}%
+}
+
+\NewDocumentCommand{\jobGalaxyFinX}{s o o}{%
+    \cvjob{\jobtitle{#1}{#2}{Middle Software Engineer, Core Banking}{Middle Software Engineer}}
+          {03/2026 -- Present}
+          {Galaxy FinX (Vikki Digital Bank)}
+          {\IfValueTF{#3}{#3}{core banking platform built on Thought Machine Vault Core}}}
+
+\NewDocumentCommand{\jobVietlink}{s o o}{%
+    \cvjob{\jobtitle{#1}{#2}{Software Engineer}{Software Engineer}}
+          {04/2025 -- 03/2026}
+          {Vietlink (KDDI Agile Development Center Group)}
+          {\IfValueTF{#3}{#3}{au Denki -- large-scale electric utility platform serving millions of users}}}
+
+\NewDocumentCommand{\jobVNPAY}{s o o}{%
+    \cvjob{\jobtitle{#1}{#2}{Software Engineer}{Software Engineer}}
+          {04/2024 -- 04/2025}
+          {VNPAY}
+          {\IfValueTF{#3}{#3}{VNPAY Cloud -- cloud platform for fintech and enterprise customers}}}
+
+\NewDocumentCommand{\jobEsolLabs}{s o o}{%
+    \cvjob{\jobtitle{#1}{#2}{Blockchain Developer}{Blockchain Developer}}
+          {06/2023 -- 09/2023}
+          {EsolLabs}
+          {\IfValueTF{#3}{#3}{Innovaz Market Factory -- cross-chain NFT and token platform}}}
+
+\newcommand{\projDattingQ}{\cvproject{DattingQ}{Software Engineer}{Dating platform}}
+\newcommand{\projMeetQ}{\cvproject{MeetQ}{Software Engineer}{AI-powered online meeting platform}}
+
+% =========================================================
+% EDUCATION & CERTIFICATION
+% =========================================================
+\newcommand{\cveducation}{%
+    \cvsection{Education \& Certifications}
+    \textbf{University of Science, Ho Chi Minh City (HCMUS)}\hfill
+    B.Sc. Information Technology -- Knowledge Engineering\par
+    \vspace{1.5pt}%
+    \textbf{DevOps on AWS Specialization}\enspace|\enspace
+    \href{https://www.coursera.org/account/accomplishments/specialization/UDQ2L4ER9CYC}{Coursera}\par
+}
